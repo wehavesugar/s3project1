@@ -15,12 +15,11 @@
 </template>
 
 <script>
-import TabBar from "@common/tabbar.vue";
 import IndexMovie from "./indexMovie.vue";
 import CinLine from "../../components/cin_line.vue";
 import TodayHot from "./todayhot.vue";
 export default {
-  components: { IndexMovie, CinLine, TodayHot, TabBar },
+  components: { IndexMovie, CinLine, TodayHot },
   name: "home",
   created() {
     console.log(this);

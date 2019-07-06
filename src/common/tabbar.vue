@@ -29,22 +29,18 @@ export default {
     return {
       tabBars: [
         {
-          icon: "&#xe717;",
           title: "首页",
           path: "/home"
         },
         {
-          icon: "&#xe61d;",
           title: "购票",
           path: "/list"
         },
         {
-          icon: "&#xe613;",
           title: "商城",
           path: "/order"
         },
         {
-          icon: "&#xe605;",
           title: "发现",
           path: "/explore"
         }

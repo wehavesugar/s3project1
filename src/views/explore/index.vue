@@ -99,12 +99,10 @@
 </template>
 
 <script>
-import TabBar from "@common/tabbar.vue";
 import Newsnav from "./newsnav.vue";
 export default {
   components: {
-    Newsnav,
-    TabBar
+    Newsnav
   },
   name: "order"
 };
