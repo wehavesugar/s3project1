@@ -197,7 +197,6 @@ export default {
 }
 .indexmovie li {
   float: left;
-  display: inline;
   width: 25%;
   height: 3.6497916rem;
   text-align: center;
