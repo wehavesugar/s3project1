@@ -238,13 +238,9 @@ export default {
 }
 
 .notbigpic > .picbox > a > img {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    object-fit: cover;
-    height: 100%;
-    object-position: left top;
+  display: block;
+  width: 2.28rem;
+  height: 1.56rem;
 }
 
 .notbigpic > .text {

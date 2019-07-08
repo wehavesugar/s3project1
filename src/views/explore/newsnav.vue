@@ -11,7 +11,12 @@
 
 <script>
 export default {
-    name:"newsnav"
+    name:"newsnav",
+    data(){
+        return{
+            
+        }
+    }
 }
 </script>
 
