@@ -2,7 +2,7 @@
   <section class="m_bg_white">
     <article class="indexmovie">
       <h2>
-        <a href="#!/home/hot/">
+        <a href="#/home/hot/">
           <i class="i_tnext"></i>
           <b>正在热映（49部）</b>
         </a>
@@ -134,7 +134,7 @@
     </article>
     <article class="indexmovie indexclick">
       <h2>
-        <a href="#!/home/coming/">
+        <a href="#/home/coming/">
           <i class="i_tnext"></i>
           <b>即将上映（68部）</b>
         </a>
@@ -162,7 +162,7 @@ export default {
 }
 
 .indexmovie li p span {
-  font-size: 0.33rem;
+  font-size: 0.3283rem;
   line-height: 1.2;
 }
 
@@ -196,8 +196,7 @@ export default {
   height: 2.45rem;
 }
 .indexmovie li {
-  float: left;
-  display: inline;
+  display: inline-block;
   width: 25%;
   height: 3.6497916rem;
   text-align: center;
@@ -236,7 +235,7 @@ export default {
   background-size: auto 0.192rem;
 }
 .indexmovie h2 b {
-  font-size: 0.42rem;
+  font-size: 0.422rem;
   color: #333;
 }
 .indexclick {

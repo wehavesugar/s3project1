@@ -1,18 +1,24 @@
 <template>
   <div>
-    <TabBar />list
+    <TabBar />
+    <section style="min-height:10rem;">
+      <CityFilter />
+      <cinema-list />
+    </section>
   </div>
 </template>
 
 <script>
-import TabBar from "@common/tabbar.vue";
+import CinemaList from "./CinemaList";
+import CityFilter from "./CityFilter";
 export default {
   components: {
-    TabBar
+    CityFilter,
+    CinemaList
   },
   name: "list"
 };
 </script>
 
-<style>
+<style scoped>
 </style>

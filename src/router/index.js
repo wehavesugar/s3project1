@@ -6,6 +6,7 @@ import list from './list';
 import order from './order';
 import mine from './mine';
 import explore from './explore';
+import citylist from './citylist';
 
 Vue.use(Router);
 
@@ -17,6 +18,7 @@ export default new Router({
 		order,
 		mine,
 		explore,
+		citylist,
 		{
 			path: '/',
 			redirect: '/home'
