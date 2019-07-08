@@ -28,8 +28,16 @@ export default new Router({
 			component: () => import('@views/home/hot/index.vue')
 		},
 		{
-			path: '/home/comming',
+			path: '/home/coming',
 			component: () => import('@views/home/comming/index.vue')
+		},
+		{
+			path: '/search',
+			component: () => import('@views/home/search/index.vue')
+		},
+		{
+			path: '/list/buytiket',
+			component: () => import('@views/list/buytiket/index.vue')
 		}
 	]
 });

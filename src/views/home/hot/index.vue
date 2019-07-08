@@ -1,7 +1,7 @@
 <template>
   <div id="wrap">
     <header class="header">
-      <a href="#" class="back"></a>
+      <a @click="backward()" href="#" class="back"></a>
       <ul class="show_option">
         <li class="opt_active">
           <a href="#">
@@ -16,7 +16,7 @@
       </ul>
     </header>
     <div class="movie_search">
-      <div class="cityshow">
+      <div @click="cityList()" class="cityshow">
         <b>北京</b>
         <i></i>
       </div>
@@ -273,7 +273,15 @@
 
 <script>
 export default {
-  name: "hot"
+  name: "hot",
+  methods: {
+    backward() {
+      this.$router.back();
+    },
+    cityList() {
+      this.$router.push("/citylist");
+    }
+  }
 };
 </script>
 
@@ -287,13 +295,14 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0 0.5rem;
+  position: relative;
 }
 .back {
   display: block;
   width: 1.056rem;
   height: 1.056rem;
   position: absolute;
-  top: 1rem;
+  top: 0;
   left: 0.1rem;
   color: #fff;
   text-align: center;

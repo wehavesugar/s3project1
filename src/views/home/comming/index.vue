@@ -1,143 +1,151 @@
 <template>
   <div id="wrap">
     <header class="header">
-      <a href="#" class="back"></a>
-      <a href="#" class="share"></a>
+      <a @click="backward()" href="#" class="back"></a>
+      <ul class="show_option">
+        <li>
+          <a href="#">
+            <span>正在热映</span>
+          </a>
+        </li>
+        <li class="opt_active">
+          <a href="#">
+            <span>即将上映</span>
+          </a>
+        </li>
+      </ul>
     </header>
-    <div class="wrapcon">
-      <div class="filmtitle">
+    <div class="movie_search">
+      <div @click="cityList()" class="cityshow">
+        <b>北京</b>
+        <i></i>
+      </div>
+      <p class="search">
+        <span>影院/影片/影人，任你搜</span>
+      </p>
+    </div>
+    <div class="upcoming">
+      <div class="mosemovie">
+        <h2>
+          <b>最受关注</b>
+          <span>(10部)</span>
+        </h2>
+        <div class="moviescroll">
+          <ul>
+            <li>
+              <span>7月5日</span>
+              <div class="moviebox">
+                <div class="upmoviepic">
+                  <a href="#">
+                    <img src="../../../../public/img/get1.jpg" alt />
+                  </a>
+                </div>
+                <div class="movieinfo">
+                  <div class="info">
+                    <a href="#">扫黄2天地对决</a>
+                    <p>
+                      <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
+                    </p>
+                    <p class="info_txt">导演：邱礼涛</p>
+                    <p class="info_txt">演员：刘德华,古天乐</p>
+                  </div>
+                  <div class="btn">
+                    <a href="#" class="btn_orange">超前预售</a>
+                    <a href="#" class="btn_green">预告片</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <span>7月5日</span>
+              <div class="moviebox">
+                <div class="upmoviepic">
+                  <a href="#">
+                    <img src="../../../../public/img/get1.jpg" alt />
+                  </a>
+                </div>
+                <div class="movieinfo">
+                  <div class="info">
+                    <a href="#">扫黄2天地对决</a>
+                    <p>
+                      <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
+                    </p>
+                    <p class="info_txt">导演：邱礼涛</p>
+                    <p class="info_txt">演员：刘德华,古天乐</p>
+                  </div>
+                  <div class="btn">
+                    <a href="#" class="btn_orange">超前预售</a>
+                    <a href="#" class="btn_green">预告片</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="space"></div>
+    <div class="movie_content">
+      <h2>
+        <b>即将上映</b>
+        <span>(63部)</span>
+      </h2>
+      <div class="movielist">
+        <div class="month">
+          <span>7月</span>
+        </div>
         <ul>
           <li>
-            <div class="title">
-              <h3>北京金逸国际影城荟聚店</h3>
-              <div class="icon">
-                <i class="i_01"></i>
-                <i class="i_02"></i>
-                <i class="i_03"></i>
-                <i class="i_04"></i>
-                <i class="i_05"></i>
+            <div class="day">
+              <span>5日</span>
+            </div>
+            <div class="movieboxlist">
+              <div class="moviepic">
+                <a href="#">
+                  <img src="../../../../public/img/get1.jpg" alt />
+                </a>
+              </div>
+              <div class="movieinfo">
+                <div class="info">
+                  <a href="#">扫黄2天地对决</a>
+                  <p>
+                    <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
+                  </p>
+                  <p class="info_txt">导演：邱礼涛</p>
+                </div>
+                <div class="btn">
+                  <a href="#" class="btn_orange">超前预售</a>
+                  <a href="#" class="btn_green">预告片</a>
+                </div>
               </div>
             </div>
           </li>
           <li>
-            <a href="#" class="tel"></a>
-          </li>
-          <li>
-            <a href="#" class="location"></a>
-          </li>
-        </ul>
-      </div>
-      <div class="hotmovie">
-        <ul>
-          <li>
-            <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
-            </a>
+            <div class="day">
+              <span>5日</span>
+            </div>
+            <div class="movieboxlist">
+              <div class="moviepic">
+                <a href="#">
+                  <img src="../../../../public/img/get1.jpg" alt />
+                </a>
+              </div>
+              <div class="movieinfo">
+                <div class="info">
+                  <a href="#">扫黄2天地对决</a>
+                  <p>
+                    <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
+                  </p>
+                  <p class="info_txt">导演：邱礼涛</p>
+                </div>
+                <div class="btn">
+                  <a href="#" class="btn_orange">超前预售</a>
+                  <a href="#" class="btn_green">预告片</a>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
-      </div>
-      <div class="select">
-        <div class="movie_title">
-          <a href="#">
-            <h3 class="select_tit">蜘蛛侠：英雄归来</h3>
-            <p>100分钟 - 动作 / 剧情 / 犯罪</p>
-            <i class="more"></i>
-          </a>
-        </div>
-        <div class="search_tab">
-          <ul>
-            <li class="on">明天（7月05日）</li>
-            <li>明天（7月05日）</li>
-            <li>明天（7月05日）</li>
-          </ul>
-        </div>
-        <div class="downapp">
-          <i class="sun"></i>
-          <p>用时光网App购票，享受更多优惠</p>
-          <span>立即下载</span>
-        </div>
-        <div class="tiket">
-          <ul>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -145,11 +153,23 @@
 
 <script>
 export default {
-  name: "upcomming"
+  name: "comming",
+  methods: {
+    backward() {
+      this.$router.back();
+    },
+    cityList() {
+      this.$router.push("/citylist");
+    }
+  }
 };
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
 #wrap {
   width: 100%;
 }
@@ -171,273 +191,236 @@ export default {
   height: 1.056rem;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0.1rem;
   color: #fff;
   text-align: center;
   background: url(../../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
 }
-.share {
-  display: block;
-  width: 1.056rem;
-  height: 1.056rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: #fff;
+.show_option {
+  float: left;
+  width: 5.16rem;
+  height: 0.6756rem;
+  background: #0d121a;
+  border-radius: 0.3378rem;
   text-align: center;
-  background: url(../../../../public/img/i_h_share.png) no-repeat 0.3rem center;
 }
-.filmtitle {
-  padding: 0.34rem 0.2rem 0.2rem 0.34rem;
-}
-.filmtitle ul {
+.show_option > li {
+  width: 2.5622rem;
+  height: 0.6356rem;
+  border-radius: 0.3178rem;
+  float: left;
   display: flex;
-  justify-content: center;
-}
-.filmtitle ul li {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 1.4rem;
+  justify-content: center;
 }
-.title {
-  width: 5rem;
+.show_option > li > a {
+  display: block;
+}
+.show_option > li > a > span {
+  color: #999;
+  font-size: 0.28rem;
+}
+.opt_active {
+  background: #1c2635;
+}
+.opt_active a {
+  color: #fff;
+}
+.movie_search {
+  background: #eee;
+  width: 100%;
+  height: 1.238rem;
+  padding: 0.19rem 0.36rem;
+  border-bottom: 1px solid #999;
+  box-sizing: border-box;
+}
+.cityshow {
+  float: left;
   margin-right: 0.2rem;
-  height: 1.4rem;
+  height: 3.5em;
 }
-.title h3 {
-  font-size: 0.36rem;
-}
-.icon {
-  display: flex;
-  justify-content: flex-start;
+.cityshow b {
+  font-size: 0.32rem;
+  font-weight: normal;
+  display: block;
+  float: left;
   margin-top: 0.2rem;
 }
-.icon i {
-  margin-right: 0.15rem;
-}
-.i_01 {
-  background: url(../../../../public/img/i_cine_01.png) no-repeat;
-  background-size: contain;
-}
-.i_02 {
-  background: url(../../../../public/img/ia_cine_05.png) no-repeat;
-  background-size: contain;
-}
-.i_03 {
-  background: url(../../../../public/img/is_cine_02.png) no-repeat;
-  background-size: cover;
-}
-.i_04 {
-  background: url(../../../../public/img/is_cine_04.png) no-repeat;
-  background-size: contain;
-}
-.i_05 {
-  background: url(../../../../public/img/is_cine_06.png) no-repeat;
-  background-size: contain;
-}
-.icon > i {
+.cityshow i {
   display: block;
-  width: 0.42rem;
-  height: 0.42rem;
+  width: 1.2rem;
+  height: 0.82rem;
+  background: url(../../../../public/img/i_city.png) no-repeat 0.8rem 0.4rem;
 }
-.tel {
-  display: block;
-  width: 0.88rem;
-  height: 0.5rem;
-  background: url(../../../../public/img/i_tel_01.png) no-repeat 0.3rem;
-  border-left: 1px solid #777;
-  text-align: center;
-}
-.location {
-  display: block;
-  width: 0.88rem;
-  height: 0.5rem;
-  background: url(../../../../public/img/i_address_01.png) no-repeat 0.3rem;
-  border-left: 1px solid #777;
-}
-.hotmovie {
-  width: 100%;
-  height: 3.5rem;
-  background: #828282;
-  overflow-x: scroll;
-  padding-top: 0.34rem;
-}
-.hotmovie ul {
-  height: 2.9rem;
-  display: flex;
-  flex-direction: row;
-  padding: 0 0.34rem;
-}
-.hotmovie ul li {
-  width: 1.7rem;
-  height: 2.9rem;
-  margin-left: 0.34rem;
-}
-.hotmovie ul li a {
-  display: block;
+.search {
+  float: left;
+  width: 5rem;
+  height: 0.7876rem;
+  font-size: 0.24rem;
+  line-height: 0.7876rem;
+  padding: 0 0.5rem 0 0.95rem;
+  border: 1px solid #777;
+  border-radius: 0.18rem;
   position: relative;
-  height: 2.9rem;
-  width: 1.7rem;
-  margin-left: 0.34rem;
+  background: #fff url(../../../../public/img/search_ico_01.png) no-repeat
+    0.25rem 0.15rem;
+  background-size: 0.5rem 0.5rem;
 }
-.m_pic {
-  width: 1.7rem;
-  height: 2.52rem;
+.search span {
+  color: #777;
+  font-size: 0.32rem;
 }
-.m_title {
-  display: block;
-  width: 1.7rem;
-  white-space: nowrap;
+.upcoming {
+  width: 100%;
+  padding: 0.28rem 0.35rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.mosemovie > h2 {
+  font-size: 0.4rem;
+}
+.mosemovie > h2 > span {
+  color: #777;
+}
+.moviescroll {
+  padding: 0.34rem 0 0 0;
+  overflow-x: auto;
+}
 
-  color: #fff;
-  font-size: 0.26rem;
-  display: block;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.m_score {
-  display: block;
-  width: 0.4rem;
-  height: 0.4rem;
-  line-height: 0.4rem;
-  text-align: center;
-  background: #659d0e;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.movie_title {
-  width: 100%;
-  height: 1.4rem;
+.moviescroll ul {
+  width: 3000rem;
+  height: 3.42rem;
   display: flex;
-  justify-content: space-around;
+  white-space: nowrap;
 }
-.movie_title a {
-  display: block;
-  overflow: hidden;
+.moviescroll > ul > li {
+  width: 6.82rem;
   position: relative;
-  width: 100%;
-  height: 1.4rem;
+  padding: 0.28rem 0 0 0;
+  margin-right: 0.2rem;
+  border-top: 1px solid #777;
+  border-right: 1px solid #777;
 }
-.select_tit {
-  font-size: 0.36rem;
+.moviescroll > ul > li > span {
+  position: absolute;
+  top: -22px;
+  left: 0px;
+  color: #777;
+  background: #fff;
+  display: block;
+  width: 1.4rem;
+  font-size: 0.32rem;
+  text-align: right;
+  padding-right: 0.2rem;
+}
+.moviebox {
+  width: 6.2rem;
+  height: 3rem;
+  display: flex;
+}
+
+.upmoviepic {
+  width: 2rem;
+  height: 3rem;
+  margin-right: 0.3rem;
+}
+.upmoviepic > a {
+  display: block;
+  width: 1.8rem;
+  height: 3rem;
+}
+.upmoviepic > a > img {
+  width: 1.8rem;
+  height: 3rem;
+}
+.movieinfo {
+  width: 4.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 3rem; */
+}
+.movieinfo > .info > a {
+  font-size: 0.38rem;
+  font-weight: 900;
+  line-height: 0.42rem;
+}
+.movieinfo > .info p {
+  font-size: 0.28rem;
+  line-height: 0.52rem;
+}
+.movieinfo > .info p .num {
+  color: #ff8600;
+}
+.movieinfo .btn {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 0.8rem;
+}
+.movieinfo .btn > a {
+  display: block;
+  width: 2rem;
+  height: 0.7rem;
   line-height: 0.7rem;
   text-align: center;
-  color: #000;
+  border-radius: 0.4rem;
+  font-size: 0.34rem;
 }
-.movie_title p {
-  font-size: 0.3rem;
-  line-height: 0.4rem;
-  color: #777;
-  text-align: center;
-}
-.movie_title .more {
-  position: absolute;
-  top: 40px;
-  right: 0.4rem;
-  display: block;
-  width: 0.5rem;
-  height: 0.5rem;
-  background: url(../../../../public/img/i-tmore.png) no-repeat center center;
-  transform: rotate(-90deg);
-}
-.search_tab {
-  width: 100%;
-  height: 1.06rem;
-  overflow-x: scroll;
-  background: #eee;
-}
-.search_tab ul {
-  height: 1.06rem;
-  width: 9rem;
-  display: flex;
-  flex-direction: row;
-}
-.search_tab ul li {
-  width: 3rem;
-  height: 1.06rem;
-  font-size: 0.32rem;
-  padding: 0.34rem 0.2rem;
-}
-.on {
-  color: #1e7dd7;
-  font-weight: 900;
-  border-bottom: 0.05rem solid #1e7dd7;
-}
-.downapp {
-  width: 100%;
-  height: 1.2rem;
-  background-color: #fffaf2;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 0.2rem;
-}
-.sun {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  background: url(../../../../public/img/icon_light.png) no-repeat;
-}
-.downapp p {
-  line-height: 0.4rem;
-  width: 4rem;
-  font-size: 0.3rem;
-  color: #f94931;
-}
-.downapp span {
-  line-height: 0.6rem;
-  height: 0.6rem;
-  width: 1.6rem;
-  font-size: 0.3rem;
-  font-weight: 700;
-  color: #f94931;
-  display: block;
-  border: #f94931 1px solid;
-  border-radius: 0.3rem;
-  text-align: center;
-}
-.tiket {
-  overflow: hidden;
-}
-.tiket ul {
-  overflow: hidden;
-}
-.tiket ul li {
-  display: flex;
-  justify-content: space-around;
-  padding: 0.3rem;
-}
-.time {
-  font-weight: bold;
-  font-size: 0.5rem;
-  width: 1.36rem;
-}
-.tip {
-  width: 2rem;
-  font-size: 0.3rem;
-  text-align: center;
-}
-.price {
-  color: #ff8600;
-  width: 1.8rem;
-  font-size: 0.4rem;
-  font-weight: 700;
-  text-align: center;
-}
-.buy {
-  line-height: 0.6rem;
-  height: 0.6rem;
-  width: 1.6rem;
-  font-size: 0.32rem;
-  font-weight: 700;
-  display: block;
+.btn_orange {
   background: #ff8600;
-  border-radius: 0.3rem;
-  text-align: center;
-}
-.buy_tiket {
   color: #fff;
+  border: 1px solid #ff8600;
+}
+.btn_green {
+  border: 2px solid #659c0d;
+  color: #659c0d;
+}
+.space {
+  width: 100%;
+  background: #eee;
+  height: 0.36rem;
+}
+.movie_content {
+  width: 100%;
+  padding: 0.2rem 0 0 0.35rem;
+  box-sizing: border-box;
+}
+.movielist .month {
+  border-bottom: 1px solid #bbb;
+  padding: 0.15rem 0 0.2rem;
+}
+.month span {
+  font-size: 0.32rem;
+}
+.movielist > ul > li {
+  display: flex;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid #d8d8d8;
+}
+.day {
+  width: 0.6rem;
+  color: #999;
+}
+.movieboxlist {
+  width: 6.4rem;
+  display: flex;
+}
+.moviepic {
+  width: 1.5rem;
+  height: 2.1rem;
+  margin-right: 0.3rem;
+}
+
+.moviepic > a {
+  display: block;
+  width: 1.5rem;
+  height: 2.1rem;
+}
+.moviepic a img {
+  display: block;
+  width: 1.5rem;
+  height: 2.1rem;
 }
 </style>
