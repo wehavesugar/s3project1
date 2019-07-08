@@ -299,14 +299,15 @@ export default {
 }
 .back {
   display: block;
-  width: 1.056rem;
-  height: 1.056rem;
+  width: 0.5rem;
+  height: 0.5rem;
   position: absolute;
-  top: 0;
+  top: 0.3rem;
   left: 0.1rem;
   color: #fff;
   text-align: center;
   background: url(../../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
+  background-size: contain;
 }
 .show_option {
   float: left;
@@ -348,7 +349,9 @@ export default {
 .cityshow {
   float: left;
   margin-right: 0.2rem;
-  height: 3.5em;
+  height: 0.8rem;
+  width: 1.2rem;
+  position: relative;
 }
 .cityshow b {
   font-size: 0.32rem;
@@ -359,9 +362,13 @@ export default {
 }
 .cityshow i {
   display: block;
-  width: 1.2rem;
-  height: 0.82rem;
-  background: url(../../../../public/img/i_city.png) no-repeat 0.8rem 0.4rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  position: absolute;
+  top: 0.36rem;
+  right: 0.2rem;
+  background: url(../../../../public/img/i_city.png) no-repeat;
+  background-size: contain;
 }
 .search {
   float: left;
@@ -403,9 +410,12 @@ export default {
 }
 .content ul li .movie_img {
   width: 1.52rem;
-  height: 2rem;
+  height: 2.2rem;
   margin-right: 0.2rem;
   position: relative;
+}
+.movie_img img {
+  width: 100%;
 }
 .movie_img .i_hot {
   position: absolute;
@@ -415,10 +425,11 @@ export default {
   width: 0.73rem;
   height: 0.73rem;
   background: url(../../../../public/img/i_hot.png) no-repeat 0 0;
+  background-size: contain;
 }
 .content ul li .movie_con {
   width: 5.28rem;
-  height: 2rem;
+  height: 2.2rem;
 }
 .movie_con dd {
   display: flex;
@@ -450,7 +461,7 @@ export default {
   width: 0.3rem;
   height: 0.25rem;
   background: url(../../../../public/img/i_dot_01.png) no-repeat 0 0;
-  background-size: cover;
+  background-size: contain;
   margin: 0 0;
 }
 .movie_detail span {
@@ -458,19 +469,21 @@ export default {
   font-size: 0.28rem;
 }
 .info {
-  height: 0.3rem;
+  height: 0.4rem;
 }
 .info_3D {
   display: inline-block;
   background: url(../../../../public/img/ia_cine_05.png) no-repeat 0 0;
+  background-size: contain;
   width: 0.4rem;
-  height: 0.3rem;
+  height: 0.38rem;
 }
 .info_screen {
   display: inline-block;
   background: url(../../../../public/img/ia_cine_15.png) no-repeat 0 0;
+  background-size: contain;
   width: 1rem;
-  height: 0.3rem;
+  height: 0.38rem;
 }
 .fuc {
   width: 100%;
