@@ -22,6 +22,14 @@ export default new Router({
 		{
 			path: '/',
 			redirect: '/home'
+		},
+		{
+			path: '/home/hot',
+			component: () => import('@views/home/hot/index.vue')
+		},
+		{
+			path: '/home/comming',
+			component: () => import('@views/home/comming/index.vue')
 		}
 	]
 });
