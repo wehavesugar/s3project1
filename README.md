@@ -36,11 +36,15 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
+## 当前项目用到的技术点
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+vue-router + vuex + axios + 路由懒加载 + 公共组件的封装(JS组件 UI组件) + webpack + mint-ui + sass + mockjs + swiper + better-scroll + localStorage/sessionStorage + vue-lazyload
+```
 
-############################版本变动#######################
+### 版本变动
+
+```
 2019/07/06 23:50
 添加全局组件 TabBar 与 ComponentFooter 现在为全局组件 无需引入 直接使用
 编写相关 js 以及更新所有页面下的 ComponentFooter TabBar 引入方式
@@ -63,8 +67,12 @@ dev 分支下每个组员自己创建自己的分支并在自己分支内完成�
 "@store" src/store 目录
 "@utils" src/utils 目录
 "@views" src/views 目录
+```
 
-############################小组要求#######################
+### 小组要求
+
+```
+
 目录结构
 /dist >>>>>>>>>>>>>>自动生成不要操作 并且放入.gitignore
 /node_modules >>>>>>>>>>>>>>只在本地用 npm install 生成 并且放入.gitignore
@@ -91,10 +99,13 @@ vue.config.js >>>>>>>>>>>>>>调配此文件代码前一定要和组长沟通
 避免代码冲突 只修改自己分配到的代码部分 其他目录下的代码 一定要沟通过再动
 
 认真记录每次 commit 时的 message
+```
 
-############################雷点#######################
+### 雷点
 
 ### vue.config.js 下的 devServer.proxy 配置
 
+```
 secure: false,
 pathRewrite: { '^/api': '' }
+```

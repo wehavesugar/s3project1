@@ -3,6 +3,7 @@
     <TabBar />
     <div class="container">
       <div id="home">
+        <SearchBar />
         <index-movie />
         <cin-line />
         <today-hot />
@@ -16,14 +17,13 @@
 
 <script>
 import IndexMovie from "./indexMovie.vue";
+import SearchBar from "../../components/searchbar.vue";
 import CinLine from "../../components/cin_line.vue";
 import TodayHot from "./todayhot.vue";
 export default {
-  components: { IndexMovie, CinLine, TodayHot },
+  components: { IndexMovie, CinLine, TodayHot, SearchBar },
   name: "home",
-  created() {
-    console.log(this);
-  },
+  created() {},
   methods: {
     handleTo() {
       this.$router.push("/home/one");

@@ -84,7 +84,7 @@ export default {
   position: relative;
 }
 .hea_news li a span {
-  font-size: 0.3rem;
+  font-size: 0.3046rem;
 }
 
 .hea_news li {
