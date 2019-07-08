@@ -172,25 +172,27 @@ export default {
 }
 .back {
   display: block;
-  width: 1.056rem;
-  height: 1.056rem;
+  width: 0.5rem;
+  height: 0.5rem;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0.3rem;
+  left: 0.1rem;
   color: #fff;
   text-align: center;
   background: url(../../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
+  background-size: contain;
 }
 .share {
   display: block;
-  width: 1.056rem;
-  height: 1.056rem;
+  width: 1rem;
+  height: 0.4rem;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0.36rem;
+  right: 0.1rem;
   color: #fff;
   text-align: center;
   background: url(../../../../public/img/i_h_share.png) no-repeat 0.3rem center;
+  background-size: contain;
 }
 .filmtitle {
   padding: 0.34rem 0.2rem 0.2rem 0.34rem;
@@ -251,7 +253,8 @@ export default {
   width: 0.88rem;
   height: 0.5rem;
   background: url(../../../../public/img/i_tel_01.png) no-repeat 0.3rem;
-  border-left: 1px solid #777;
+  background-size: contain;
+  border-left: 1px solid #d8d8d8;
   text-align: center;
 }
 .location {
@@ -259,7 +262,8 @@ export default {
   width: 0.88rem;
   height: 0.5rem;
   background: url(../../../../public/img/i_address_01.png) no-repeat 0.3rem;
-  border-left: 1px solid #777;
+  background-size: contain;
+  border-left: 1px solid #d8d8d8;
 }
 .hotmovie {
   width: 100%;
@@ -286,6 +290,10 @@ export default {
   width: 1.7rem;
   margin-left: 0.34rem;
 }
+.hotmovie ul li a img {
+  height: 2.3rem;
+  width: 1.7rem;
+}
 .m_pic {
   width: 1.7rem;
   height: 2.52rem;
@@ -294,12 +302,12 @@ export default {
   display: block;
   width: 1.7rem;
   white-space: nowrap;
-
   color: #fff;
   font-size: 0.26rem;
   display: block;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-weight: normal;
 }
 .m_score {
   display: block;
@@ -339,12 +347,13 @@ export default {
 }
 .movie_title .more {
   position: absolute;
-  top: 40px;
+  top: 0.5rem;
   right: 0.4rem;
   display: block;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.3rem;
+  height: 0.3rem;
   background: url(../../../../public/img/i-tmore.png) no-repeat center center;
+  background-size: contain;
   transform: rotate(-90deg);
 }
 .search_tab {
@@ -381,9 +390,10 @@ export default {
 }
 .sun {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
   background: url(../../../../public/img/icon_light.png) no-repeat;
+  background-size: contain;
 }
 .downapp p {
   line-height: 0.4rem;
@@ -402,6 +412,7 @@ export default {
   border: #f94931 1px solid;
   border-radius: 0.3rem;
   text-align: center;
+  font-weight: normal;
 }
 .tiket {
   overflow: hidden;

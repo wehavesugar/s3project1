@@ -1,29 +1,7 @@
 <template>
   <div id="wrap">
-    <header class="header">
-      <a @click="backward()" href="#" class="back"></a>
-      <ul class="show_option">
-        <li>
-          <a href="#">
-            <span>正在热映</span>
-          </a>
-        </li>
-        <li class="opt_active">
-          <a href="#">
-            <span>即将上映</span>
-          </a>
-        </li>
-      </ul>
-    </header>
-    <div class="movie_search">
-      <div @click="cityList()" class="cityshow">
-        <b>北京</b>
-        <i></i>
-      </div>
-      <p class="search">
-        <span>影院/影片/影人，任你搜</span>
-      </p>
-    </div>
+    <Tabhot />
+    <SearchBar />
     <div class="upcoming">
       <div class="mosemovie">
         <h2>
@@ -83,6 +61,9 @@
           </ul>
         </div>
       </div>
+    </div>
+    <div class="banner">
+      <img src="@public/img/szw_750210.jpg" />
     </div>
     <div class="space"></div>
     <div class="movie_content">
@@ -145,6 +126,31 @@
               </div>
             </div>
           </li>
+          <li>
+            <div class="day">
+              <span>5日</span>
+            </div>
+            <div class="movieboxlist">
+              <div class="moviepic">
+                <a href="#">
+                  <img src="../../../../public/img/get1.jpg" alt />
+                </a>
+              </div>
+              <div class="movieinfo">
+                <div class="info">
+                  <a href="#">扫黄2天地对决</a>
+                  <p>
+                    <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
+                  </p>
+                  <p class="info_txt">导演：邱礼涛</p>
+                </div>
+                <div class="btn">
+                  <a href="#" class="btn_orange">超前预售</a>
+                  <a href="#" class="btn_green">预告片</a>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -152,16 +158,11 @@
 </template>
 
 <script>
+import Tabhot from "@components/tabhot.vue";
+import SearchBar from "@components/searchbar.vue";
 export default {
-  name: "comming",
-  methods: {
-    backward() {
-      this.$router.back();
-    },
-    cityList() {
-      this.$router.push("/citylist");
-    }
-  }
+  components: { Tabhot, SearchBar },
+  name: "comming"
 };
 </script>
 
@@ -173,103 +174,7 @@ export default {
 #wrap {
   width: 100%;
 }
-.header {
-  width: 100%;
-  height: 1.056rem;
-  background: #1c2635;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.5rem;
-  box-sizing: border-box;
-  position: relative;
-}
-.back {
-  display: block;
-  width: 1.056rem;
-  height: 1.056rem;
-  position: absolute;
-  top: 0;
-  left: 0.1rem;
-  color: #fff;
-  text-align: center;
-  background: url(../../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
-}
-.show_option {
-  float: left;
-  width: 5.16rem;
-  height: 0.6756rem;
-  background: #0d121a;
-  border-radius: 0.3378rem;
-  text-align: center;
-}
-.show_option > li {
-  width: 2.5622rem;
-  height: 0.6356rem;
-  border-radius: 0.3178rem;
-  float: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.show_option > li > a {
-  display: block;
-}
-.show_option > li > a > span {
-  color: #999;
-  font-size: 0.28rem;
-}
-.opt_active {
-  background: #1c2635;
-}
-.opt_active a {
-  color: #fff;
-}
-.movie_search {
-  background: #eee;
-  width: 100%;
-  height: 1.238rem;
-  padding: 0.19rem 0.36rem;
-  border-bottom: 1px solid #999;
-  box-sizing: border-box;
-}
-.cityshow {
-  float: left;
-  margin-right: 0.2rem;
-  height: 3.5em;
-}
-.cityshow b {
-  font-size: 0.32rem;
-  font-weight: normal;
-  display: block;
-  float: left;
-  margin-top: 0.2rem;
-}
-.cityshow i {
-  display: block;
-  width: 1.2rem;
-  height: 0.82rem;
-  background: url(../../../../public/img/i_city.png) no-repeat 0.8rem 0.4rem;
-}
-.search {
-  float: left;
-  width: 5rem;
-  height: 0.7876rem;
-  font-size: 0.24rem;
-  line-height: 0.7876rem;
-  padding: 0 0.5rem 0 0.95rem;
-  border: 1px solid #777;
-  border-radius: 0.18rem;
-  position: relative;
-  background: #fff url(../../../../public/img/search_ico_01.png) no-repeat
-    0.25rem 0.15rem;
-  background-size: 0.5rem 0.5rem;
-}
-.search span {
-  color: #777;
-  font-size: 0.32rem;
-}
+
 .upcoming {
   width: 100%;
   padding: 0.28rem 0.35rem;
@@ -278,10 +183,10 @@ export default {
   box-sizing: border-box;
 }
 .mosemovie > h2 {
-  font-size: 0.4rem;
+  font-size: 0.36rem;
 }
 .mosemovie > h2 > span {
-  color: #777;
+  color: #000;
 }
 .moviescroll {
   padding: 0.34rem 0 0 0;
@@ -304,7 +209,7 @@ export default {
 }
 .moviescroll > ul > li > span {
   position: absolute;
-  top: -22px;
+  top: -0.24rem;
   left: 0px;
   color: #777;
   background: #fff;
@@ -373,15 +278,47 @@ export default {
   color: #fff;
   border: 1px solid #ff8600;
 }
+.movieinfo .btn > .btn_orange_small {
+  display: block;
+  width: 1.7rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  font-size: 0.26rem;
+  background: #ff8600;
+  color: #fff;
+  border: 1px solid #ff8600;
+  margin-top: 0.15rem;
+}
 .btn_green {
   border: 2px solid #659c0d;
   color: #659c0d;
+}
+.movieinfo .btn > .btn_green_small {
+  display: block;
+  width: 1.7rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  font-size: 0.26rem;
+  border: 1px solid #659c0d;
+  color: #659c0d;
+  margin-top: 0.15rem;
+}
+.banner {
+  height: 2rem;
+}
+.banner img {
+  width: 100%;
 }
 .space {
   width: 100%;
   background: #eee;
   height: 0.36rem;
 }
+
 .movie_content {
   width: 100%;
   padding: 0.2rem 0 0 0.35rem;

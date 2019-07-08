@@ -63,16 +63,16 @@ export default {
 
 .back {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0.3rem;
+  left: 0.1rem;
   color: #fff;
   text-align: center;
   background: url(../../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
+  background-size: contain;
 }
-
 #sesrchbox {
   border: 1px solid #bbb;
   padding: 0.16rem 0.6rem 0.16rem 0.64rem;

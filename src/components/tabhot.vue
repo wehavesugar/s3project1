@@ -29,7 +29,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .header {
   width: 100%;
   height: 1.056rem;
@@ -50,7 +50,7 @@ export default {
   left: 0.1rem;
   color: #fff;
   text-align: center;
-  background: url(../../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
+  background: url(../../public/img/h_btn_back.png) no-repeat 0.3rem center;
   background-size: contain;
 }
 .show_option {
