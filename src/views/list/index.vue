@@ -3,15 +3,18 @@
     <TabBar />
     <section style="min-height:10rem;">
       <CityFilter />
+      <cinema-list />
     </section>
   </div>
 </template>
 
 <script>
-import CityFilter from "./CityFilter.vue";
+import CinemaList from "./CinemaList";
+import CityFilter from "./CityFilter";
 export default {
   components: {
-    CityFilter
+    CityFilter,
+    CinemaList
   },
   name: "list"
 };
