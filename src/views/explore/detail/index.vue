@@ -308,7 +308,7 @@
 
 <script>
 export default {
-    name: 'banner'
+    name: 'detail'
 }
 </script>
 

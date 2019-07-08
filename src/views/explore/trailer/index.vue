@@ -55,9 +55,9 @@
 </template>
 
 <script>
-import TabBar from "../../common/tabbar.vue";
-import Newsnav from "../newsnav.vue";
-import Banner from '../banner.vue';
+import TabBar from "../../../common/tabbar.vue";
+import Newsnav from "../component/newsnav";
+import Banner from '../component/banner.vue';
 export default {
     components:{
         Newsnav,

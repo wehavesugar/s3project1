@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import Newsnav from './newsnav.vue'
+import Newsnav from '../component/newsnav.vue'
 import TabBar from "@common/tabbar.vue";
 export default {
     components:{

@@ -80,13 +80,13 @@
 
 <script>
 import TabBar from "@common/tabbar.vue";
-import Newsnav from './newsnav.vue'
+import Newsnav from '../component/newsnav.vue'
 export default {
     components:{
         Newsnav,
         TabBar
     },
-    name: toplist
+    name: 'toplist'
 }
 </script>
 
