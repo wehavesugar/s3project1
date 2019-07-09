@@ -8,10 +8,10 @@
         </a>
       </h2>
       <ul id="hotPoints">
-        <li @click="toNews()" v-for="(article,index) in articles" :key="index">
+        <li v-for="(article,index) in articles" :key="index">
           <div class="table">
             <div class="todaypic">
-              <a :href="'#/news/movie'+article.id">
+              <a :href="'#/home/news/'+article.id">
                 <img class="m_img img_box" :src="article.img" />
               </a>
             </div>
@@ -48,11 +48,7 @@ export default {
       articles: []
     };
   },
-  methods: {
-    tonews() {
-      this.$router.push("/home/news");
-    }
-  }
+  methods: {}
 };
 </script>
 
