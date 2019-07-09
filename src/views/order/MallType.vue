@@ -73,8 +73,147 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "MallType"
+};
 </script>
 
 <style>
+.mall_type {
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.32rem;
+}
+.m_bg_whiteb {
+  border-bottom: 1px solid #e5e4e4;
+  box-shadow: 0 0.1rem 0.1rem rgba(51, 51, 51, 0.01);
+  background: white;
+  position: relative;
+  z-index: 2;
+}
+.mall_type .typetit {
+  padding-top: 0.425rem;
+}
+.table,
+.table_v,
+.table_v_c,
+.table_h_c,
+.table_vh_c {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+}
+.mall_type .typetit h2 {
+  font-size: 0.375rem;
+  line-height: 0.25rem;
+  position: relative;
+  font-weight: normal;
+}
+.mall_type .typetit h2 i {
+  width: 0.15rem;
+  height: 0.45rem;
+  display: inline-block;
+  position: relative;
+  margin-right: 0.125rem;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.mall_type .typetit div {
+  position: relative;
+  zoom: 1;
+  font-size: 0.325rem;
+  color: #666;
+  margin-right: 0.375rem;
+  padding-right: 0.375rem;
+  line-height: 0.25rem;
+  margin-top: 0.05rem;
+}
+.draw-box .draw-info li dl dt,
+.td {
+  -webkit-box-flex: 1;
+  -khtml-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -khtml-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  -o-flex: 1;
+  flex: 1;
+}
+.tr {
+  text-align: right;
+}
+a,
+a:hover {
+  text-decoration: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+a {
+  color: #333;
+  font-size: 0.32rem;
+}
+.i_tnext,
+.i_next {
+  width: 0.35rem;
+  height: 0.2rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -0.1rem;
+  overflow: hidden;
+  line-height: 2.75rem;
+  text-indent: -999px;
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+}
+.m_btn_tmore,
+.i_tnext {
+  display: block;
+  background: #fff
+    url(//static1.mtime.cn/html5/20190531185056/images/2014/i-tmore.png)
+    no-repeat center center;
+  background-size: auto 0.2rem;
+}
+.mall_type dl {
+  margin: 0 0.32rem;
+}
+.mall_type dt {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 0.125rem 0;
+  margin-bottom: 0.16rem;
+}
+.mall_type li {
+  width: 33.3%;
+  text-align: center;
+}
+.mall_type li img {
+  width: 2.125rem;
+  height: 2.125rem;
+  margin: 0 auto;
+}
+.mall_type li h3 {
+  padding: 0.16rem 0;
+  font-size: 0.275rem;
+  line-height: 0.3rem;
+  font-weight: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 0 0.125rem;
+}
+.mall_type li p {
+  font-size: 0.3rem;
+  color: #f15353;
+}
+.mall_type li p strong {
+  font-size: 0.35rem;
+}
 </style>

@@ -8,71 +8,22 @@
         </a>
       </h2>
       <ul id="hotPoints">
-        <li nid="1591621" isgallary="false">
+        <li v-for="(article,index) in articles" :key="index">
           <div class="table">
             <div class="todaypic">
-              <a href="#!/news/movie/1591621/">
-                <img
-                  class="m_img img_box"
-                  src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F05%2F14%2F173959.40967928.jpg&amp;width=225&amp;height=156&amp;clipType=4"
-                />
+              <a :href="'#/news/movie'+article.id">
+                <img class="m_img img_box" :src="article.img" />
               </a>
             </div>
             <div class="todaytxt td">
               <h2>
-                <a href="#!/news/movie/1591621/">皮卡丘凭什么征服全世界？</a>
+                <a :href="'#/news/movie'+article.id">{{article.title}}</a>
               </h2>
               <p>
-                <span>一篇文章带你入宝可梦的坑</span>
+                <span>{{article.desc}}</span>
               </p>
               <p>
                 <time>2019-05-07 16:57:00</time>
-              </p>
-            </div>
-          </div>
-        </li>
-        <li nid="1591801" isgallary="false">
-          <div class="table">
-            <div class="todaypic">
-              <a href="#!/news/movie/1591801/">
-                <img
-                  class="m_img img_box"
-                  src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F05%2F14%2F173148.20507664.jpg&amp;width=225&amp;height=156&amp;clipType=4"
-                />
-              </a>
-            </div>
-            <div class="todaytxt td">
-              <h2>
-                <a href="#!/news/movie/1591801/">戛纳获奖片票房一定不行？</a>
-              </h2>
-              <p>
-                <span>从《何以为家》回望艺术片发行</span>
-              </p>
-              <p>
-                <time>2019-05-12 11:41:37</time>
-              </p>
-            </div>
-          </div>
-        </li>
-        <li nid="1591770" isgallary="false">
-          <div class="table">
-            <div class="todaypic">
-              <a href="#!/news/movie/1591770/">
-                <img
-                  class="m_img img_box"
-                  src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F05%2F14%2F172635.20671255.jpg&amp;width=225&amp;height=156&amp;clipType=4"
-                />
-              </a>
-            </div>
-            <div class="todaytxt td">
-              <h2>
-                <a href="#!/news/movie/1591770/">“权游”咖啡杯不算离奇！</a>
-              </h2>
-              <p>
-                <span>欧美影视剧穿帮镜头大赏</span>
-              </p>
-              <p>
-                <time>2019-05-11 16:38:25</time>
               </p>
             </div>
           </div>
@@ -83,10 +34,20 @@
 </template>
 
 <script>
-import Mallshop from "../../components/mallShop.vue";
+import { getTodayHot } from "@api/home";
+import Mallshop from "@components/mallShop.vue";
 export default {
   name: "todayHot",
-  components: { Mallshop }
+  components: { Mallshop },
+  async created() {
+    const response = await getTodayHot();
+    this.articles = response.hotPoints;
+  },
+  data() {
+    return {
+      articles: []
+    };
+  }
 };
 </script>
 

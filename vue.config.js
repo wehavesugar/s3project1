@@ -2,17 +2,26 @@ const path = require('path');
 
 module.exports = {
 	devServer: {
-		open: true,
+		// host: 'localhost', //target host
+		// port: 8080,
+		// open: true,
+		// proxy: {
+		// 	'/api': {
+		// 		target: 'http://39.97.33.178'
+		// 	}
+		// }
 		proxy: {
-			'/api': {
-				target:
-					'https://m.mtime.cn/Service/callback.mi/Showtime/LocationMovies.api',
-				changeOrigin: true,
-				secure: false,
-				pathRewrite: { '^/api': '' }
+			'/Service': {
+				target: 'https://m.mtime.cn',
+				changeOrigin: true
+				// pathRewrite: {
+				// 	'^/api': '/'
+				// }
 			}
+			// secure: false,
 		}
 	},
+
 	configureWebpack: {
 		resolve: {
 			alias: {

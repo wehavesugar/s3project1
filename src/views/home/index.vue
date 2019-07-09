@@ -21,17 +21,8 @@ import SearchBar from "../../components/searchbar.vue";
 import CinLine from "../../components/cin_line.vue";
 import TodayHot from "./todayhot.vue";
 export default {
-  components: { IndexMovie, CinLine, TodayHot, SearchBar },
   name: "home",
-  created() {},
-  methods: {
-    handleTo() {
-      this.$router.push("/home/one");
-    },
-    handleForward() {
-      this.$router.forward();
-    }
-  }
+  components: { IndexMovie, CinLine, TodayHot, SearchBar }
 };
 </script>
 

@@ -2,12 +2,8 @@
   <article class="mallshop" style="height: auto;">
     <div class="shop00">
       <div class="shopmid">
-        <a id="firstH5UrlA" href="https://feature.mtime.cn/mobile/item/2018/Mug/">
-          <img
-            id="firstH5UrlImg"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F07%2F31%2F143906.61810640.jpg&amp;width=640&amp;height=320&amp;clipType=4"
-            class="m_img"
-          />
+        <a id="firstH5UrlA" :href="data.url">
+          <img id="firstH5UrlImg" :src="data.image" class="m_img" />
           <div class="countdown"></div>
         </a>
       </div>
@@ -16,8 +12,19 @@
 </template>
 
 <script>
+// 请求广告栏图片
+import { getMall } from "@api/home";
 export default {
-  name: "mallshop"
+  name: "IndexMovie",
+  async created() {
+    let response = await getMall();
+    this.data = response.areaFirst;
+  },
+  data() {
+    return {
+      data: ""
+    };
+  }
 };
 </script>
 

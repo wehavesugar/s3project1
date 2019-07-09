@@ -8,10 +8,11 @@ const http = axios.create({
 http.interceptors.request.use(
 	config => {
 		if (config.method == 'get') {
-			config.params = { ...config.data };
+			// config.params = { ...config.data };
 		} else if (config.method == 'post') {
-			config.headers['content-type'] = 'application/x-www-form-urlencoded';
+			//config.headers['content-type'] = 'application/x-www-form-urlencoded';
 		}
+
 		return config;
 	},
 	err => {
@@ -36,6 +37,6 @@ export default (method, url, data = {}) => {
 			params: data
 		});
 	} else if (method == 'post') {
-		return http.post(url.data);
+		return http.post(url, data);
 	}
 };

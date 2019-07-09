@@ -174,7 +174,7 @@ export default {
 .mall_act {
   position: relative;
   zoom: 1;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.3rem;
 }
 .m_bg_whiteb {
   border-bottom: 1px solid #e5e4e4;
