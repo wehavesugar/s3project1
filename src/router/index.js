@@ -36,6 +36,10 @@ export default new Router({
 			component: () => import('@views/home/search/index.vue')
 		},
 		{
+			path: '/news',
+			component: () => import('@views/home/news/index.vue')
+		},
+		{
 			path: '/list/buytiket',
 			component: () => import('@views/list/buytiket/index.vue')
 		}

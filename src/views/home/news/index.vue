@@ -9,8 +9,10 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "news"
+};
 </script>
 
-<style>
+<style scoped>
 </style>

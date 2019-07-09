@@ -2,16 +2,16 @@
   <header class="header">
     <a @click="backward()" href="#" class="back"></a>
     <ul class="show_option">
-      <li class="opt_active">
+      <router-link to="/home/hot" tag="li">
         <a href="#">
           <span>正在热映</span>
         </a>
-      </li>
-      <li>
+      </router-link>
+      <router-link to="/home/coming" tag="li">
         <a href="#">
           <span>即将上映</span>
         </a>
-      </li>
+      </router-link>
     </ul>
   </header>
 </template>
@@ -21,7 +21,7 @@ export default {
   name: "tabhot",
   methods: {
     backward() {
-      this.$router.back();
+      this.$router.push("/home");
     },
     cityList() {
       this.$router.push("/citylist");
@@ -70,17 +70,19 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.show_option > li > a {
+.show_option li a {
   display: block;
+  color: #fff;
 }
 .show_option > li > a > span {
   color: #999;
   font-size: 0.28rem;
 }
-.opt_active {
+.router-link-active {
   background: #1c2635;
+  color: #fff;
 }
-.opt_active a {
+.show_option .router-link-active a span {
   color: #fff;
 }
 </style>
