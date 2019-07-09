@@ -1,6 +1,6 @@
 <template>
   <ul class="_zVfpB">
-    <li class="_10VN3">
+    <router-link to="/list/buytiket" tag="li" class="_10VN3">
       <dl>
         <dt class="_1yfC8">
           <p class="_eaesd">
@@ -22,7 +22,7 @@
         </dd>
         <dd class="_3R7rX"></dd>
       </dl>
-    </li>
+    </router-link>
     <li class="_10VN3">
       <dl>
         <dt class="_1yfC8">

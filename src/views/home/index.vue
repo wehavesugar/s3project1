@@ -25,9 +25,6 @@ export default {
   name: "home",
   created() {},
   methods: {
-    handleTo() {
-      this.$router.push("/home/one");
-    },
     handleForward() {
       this.$router.forward();
     }
