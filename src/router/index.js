@@ -62,6 +62,11 @@ export default new Router({
             path: '/toplist/movie',
             component: () =>
                 import ('@views/explore/movie/index.vue')
+        },
+        {
+            path: '/login',
+            component: () =>
+                import ('@views/explore/login/index.vue')
         }
     ]
 });

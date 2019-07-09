@@ -94,14 +94,14 @@ export default {
 }
 
 .i_user {
-  background: url(../../../public/img/i_user.png) no-repeat;
+  background: url(../../../../public/img/i_user.png) no-repeat;
   background-size: cover;
 }
 
 .i_password {
   width: 0.48rem;
   height: 0.52782rem;
-  background: url(../../../public/img/i_password.png) no-repeat;
+  background: url(../../../../public/img/i_password.png) no-repeat;
   background-size: cover;
 }
 
@@ -206,7 +206,7 @@ export default {
 }
 
 .o_sina {
-  background: url(../../../public/img/o_sina.png) no-repeat;
+  background: url(../../../../public/img/o_sina.png) no-repeat;
   background-size: cover;
 }
 
@@ -224,7 +224,7 @@ export default {
 }
 
 .o_qq {
-  background: url(../../../public/img/o_qq.png) no-repeat;
+  background: url(../../../../public/img/o_qq.png) no-repeat;
   background-size: cover;
 }
 </style>

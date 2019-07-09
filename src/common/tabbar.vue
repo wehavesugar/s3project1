@@ -12,7 +12,7 @@
           <em v-if="item.title == '商城'" class="new">NEW</em>
         </a>
       </router-link>
-      <li class="td">
+      <li class="td" @click="handleTo()">
         <a href="#">
           <i class="ico_my"></i>
         </a>
@@ -46,6 +46,11 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+    handleTo(){
+      this.$router.push('/login')
+    }
   }
 };
 </script>
