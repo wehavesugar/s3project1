@@ -28,8 +28,48 @@ export default new Router({
 			component: () => import('@views/home/hot/index.vue')
 		},
 		{
-			path: '/home/comming',
+			path: '/home/coming',
 			component: () => import('@views/home/comming/index.vue')
+		},
+		{
+			path: '/trailer',
+			component: () => import('@views/explore/trailer/index.vue')
+		},
+		{
+			path: '/toplist',
+			component: () => import('@views/explore/toplist/index.vue')
+		},
+		{
+			path: '/review',
+			component: () => import('@views/explore/review/index.vue')
+		},
+		{
+			path: '/news',
+			component: () => import('@views/explore/index.vue')
+		},
+		{
+			path: '/detail',
+			component: () => import('@views/explore/detail/index.vue')
+		},
+		{
+			path: '/toplist/movie',
+			component: () => import('@views/explore/movie/index.vue')
+		},
+		{
+			path: '/login',
+			component: () => import('@views/explore/login/index.vue')
+		},
+		{
+			path: '/search',
+			component: () => import('@views/home/search/index.vue')
+		},
+		{
+			path: '/home/news',
+			component: () => import('@views/home/news/index.vue')
+		},
+		{
+			path: '/list/buytiket',
+			component: () => import('@views/list/buytiket/index.vue')
 		}
 	]
 });

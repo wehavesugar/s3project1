@@ -142,7 +142,7 @@ export default {
   box-sizing: border-box;
   position: relative;
 }
-.back {
+/* .back {
   display: block;
   width: 1.056rem;
   height: 1.056rem;
@@ -152,6 +152,18 @@ export default {
   color: #fff;
   text-align: center;
   background: url(../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
+} */
+.back {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: absolute;
+  top: 0.3rem;
+  left: 0.1rem;
+  color: #fff;
+  text-align: center;
+  background: url(../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
+  background-size: contain;
 }
 .header > h3 {
   font-size: 0.34rem;

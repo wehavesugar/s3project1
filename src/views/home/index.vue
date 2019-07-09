@@ -22,7 +22,13 @@ import CinLine from "../../components/cin_line.vue";
 import TodayHot from "./todayhot.vue";
 export default {
   name: "home",
-  components: { IndexMovie, CinLine, TodayHot, SearchBar }
+  components: { IndexMovie, CinLine, TodayHot, SearchBar },
+  created() {},
+  methods: {
+    handleForward() {
+      this.$router.forward();
+    }
+  }
 };
 </script>
 

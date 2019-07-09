@@ -1,29 +1,7 @@
 <template>
   <div id="wrap">
-    <header class="header">
-      <a href="#" class="back"></a>
-      <ul class="show_option">
-        <li class="opt_active">
-          <a href="#">
-            <span>正在热映</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span>即将上映</span>
-          </a>
-        </li>
-      </ul>
-    </header>
-    <div class="movie_search">
-      <div class="cityshow">
-        <b>北京</b>
-        <i></i>
-      </div>
-      <p class="search">
-        <span>影院/影片/影人，任你搜</span>
-      </p>
-    </div>
+    <Tabhot />
+    <SearchBar />
     <div class="content">
       <ul>
         <li>
@@ -272,105 +250,22 @@
 </template>
 
 <script>
+import Tabhot from "@components/tabhot.vue";
+import SearchBar from "@components/searchbar.vue";
 export default {
-  name: "hot"
+  components: { Tabhot, SearchBar },
+  name: "hot",
+  methods: {}
 };
 </script>
 
 <style scoped>
-.header {
+* {
+  margin: 0;
+  padding: 0;
+}
+#wrap {
   width: 100%;
-  height: 1.056rem;
-  background: #1c2635;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.5rem;
-}
-.back {
-  display: block;
-  width: 1.056rem;
-  height: 1.056rem;
-  position: absolute;
-  top: 1rem;
-  left: 0.1rem;
-  color: #fff;
-  text-align: center;
-  background: url(../../../../public/img/h_btn_back.png) no-repeat 0.3rem center;
-}
-.show_option {
-  float: left;
-  width: 5.16rem;
-  height: 0.6756rem;
-  background: #0d121a;
-  border-radius: 0.3378rem;
-  text-align: center;
-}
-.show_option > li {
-  width: 2.5622rem;
-  height: 0.6356rem;
-  border-radius: 0.3178rem;
-  float: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.show_option > li > a {
-  display: block;
-}
-.show_option > li > a > span {
-  color: #999;
-  font-size: 0.28rem;
-}
-.opt_active {
-  background: #1c2635;
-}
-.opt_active a {
-  color: #fff;
-}
-.movie_search {
-  background: #eee;
-  width: 100%;
-  height: 1.238rem;
-  padding: 0.19rem 0.36rem;
-  border-bottom: 1px solid #999;
-}
-.cityshow {
-  float: left;
-  margin-right: 0.2rem;
-  height: 3.5em;
-}
-.cityshow b {
-  font-size: 0.32rem;
-  font-weight: normal;
-  display: block;
-  float: left;
-  margin-top: 0.2rem;
-}
-.cityshow i {
-  display: block;
-  width: 1.2rem;
-  height: 0.82rem;
-  background: url(../../../../public/img/i_city.png) no-repeat 0.8rem 0.4rem;
-}
-.search {
-  float: left;
-  width: 5rem;
-  height: 0.7876rem;
-  font-size: 0.24rem;
-  line-height: 0.7876rem;
-  padding: 0 0.5rem 0 0.95rem;
-  border: 1px solid #777;
-  border-radius: 0.18rem;
-  position: relative;
-  background: #fff url(../../../../public/img/search_ico_01.png) no-repeat
-    0.25rem 0.15rem;
-  background-size: 0.5rem 0.5rem;
-}
-.search span {
-  color: #777;
-  font-size: 0.32rem;
 }
 .content {
   width: 100%;
@@ -394,9 +289,12 @@ export default {
 }
 .content ul li .movie_img {
   width: 1.52rem;
-  height: 2rem;
+  height: 2.2rem;
   margin-right: 0.2rem;
   position: relative;
+}
+.movie_img img {
+  width: 100%;
 }
 .movie_img .i_hot {
   position: absolute;
@@ -406,10 +304,11 @@ export default {
   width: 0.73rem;
   height: 0.73rem;
   background: url(../../../../public/img/i_hot.png) no-repeat 0 0;
+  background-size: contain;
 }
 .content ul li .movie_con {
   width: 5.28rem;
-  height: 2rem;
+  height: 2.2rem;
 }
 .movie_con dd {
   display: flex;
@@ -441,7 +340,7 @@ export default {
   width: 0.3rem;
   height: 0.25rem;
   background: url(../../../../public/img/i_dot_01.png) no-repeat 0 0;
-  background-size: cover;
+  background-size: contain;
   margin: 0 0;
 }
 .movie_detail span {
@@ -449,19 +348,21 @@ export default {
   font-size: 0.28rem;
 }
 .info {
-  height: 0.3rem;
+  height: 0.4rem;
 }
 .info_3D {
   display: inline-block;
   background: url(../../../../public/img/ia_cine_05.png) no-repeat 0 0;
+  background-size: contain;
   width: 0.4rem;
-  height: 0.3rem;
+  height: 0.38rem;
 }
 .info_screen {
   display: inline-block;
   background: url(../../../../public/img/ia_cine_15.png) no-repeat 0 0;
+  background-size: contain;
   width: 1rem;
-  height: 0.3rem;
+  height: 0.38rem;
 }
 .fuc {
   width: 100%;
