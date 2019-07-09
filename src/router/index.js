@@ -52,6 +52,16 @@ export default new Router({
             path: '/news',
             component: () =>
                 import ('@views/explore/index.vue')
+        },
+        {
+            path: '/detail',
+            component: () =>
+                import ('@views/explore/detail/index.vue')
+        },
+        {
+            path: '/toplist/movie',
+            component: () =>
+                import ('@views/explore/movie/index.vue')
         }
     ]
 });

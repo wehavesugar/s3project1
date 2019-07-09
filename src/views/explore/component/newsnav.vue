@@ -2,7 +2,7 @@
     <div id="main">
         <ul class="newsnav">
             <router-link v-for="(item, index) in navlist" :key='index'
-            @click='hamdleToggle(index)' tag='li' :to='item.path'>
+            tag='li' :to='item.path'>
                 <a href="javascript:;">
                 {{item.title}}
                 </a>
@@ -38,10 +38,7 @@ export default {
                 }
     },
     methods:{
-        hamdleToggle(index){
-            this.toggleIndex = index;
-            console.log(index, this.toggleIndex);
-        }
+        
     }
 }
 </script>
@@ -67,7 +64,7 @@ export default {
         font-size: .32rem;
     }
     
-    .newsnav .active a {
+    .newsnav .router-link-active a {
         color: #1e7dd7;
         font-weight: bold;
     }

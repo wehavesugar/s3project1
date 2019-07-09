@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="header">
-            <a href="#" class="back"></a>
+            <a href="#" class="back" @click="handleack"></a>
         </header>
         <div id="main">
             <div class="filmpeople">
@@ -219,7 +219,12 @@
 <script>
 
 export default {
-    name:'movie'
+    name:'movie',
+    methods:{
+        handleack(){
+            this.$router.back();
+        }
+    }
 }
 </script>
 
@@ -246,7 +251,7 @@ export default {
             left: 0;
             color: #fff;
             text-align: center;
-            background: url(../../../public/img/h_btn_back.png) no-repeat .3rem center;
+            background: url(../../../../public/img/h_btn_back.png) no-repeat .3rem center;
             background-size: 20%;
         }
         

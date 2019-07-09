@@ -41,7 +41,7 @@
             </div>
             <ul class="topnews">
                 <li class="_link">
-                    <a href="javascript:void(0);">
+                    <a href="javascript:void(0);"  @click="handleTo()">
                         <div class="toptxt">
                             <h2>
                                 <b>昆汀·塔伦蒂诺个人推荐私宠电影Top20</b>
@@ -86,7 +86,14 @@ export default {
         Newsnav,
         TabBar
     },
-    name: 'toplist'
+    name: 'toplist',
+    methods:{
+        handleTo(){
+            // let toIndex = index
+            this.$router.push('/toplist/movie');
+            console.log('to')
+        }
+    }
 }
 </script>
 

@@ -2,16 +2,16 @@
     <div>
         <div id="main">
             <header class="header">
-                <a href="javascript:;" class="back"></a>
+                <a href="javascript:;" class="back" @click="handleBack"></a>
                 <a href="javascript:;" class="collection"></a>
                 <a href="javascript:;" class="share"></a>
             </header>
-            <div class="topbackground">
+            <div class="topbackground" :style="{background:'url('+ backgroundImage +')'}">
             </div>
             <div class="cinemabox">
                 <div class="cinema_pic">
                     <a href="javascript:;">
-                        <img src="../../../public/img/get6.jpg" alt="蜘蛛侠：英雄远征">
+                        <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F31%2F163639.93224012_1280X720X2.jpg" alt="蜘蛛侠：英雄远征">
                     </a>
                 </div>
                 <div class="cinema_txt">
@@ -75,7 +75,7 @@
                                     <i class="i_purchase" style="background-color:#25ACBD">新品</i>
                                 </div>
                                 <div class="picbox">
-                                    <img class="m_img" src="img/181310.49294644_o.jpg">
+                                    <img class="m_img" src="http://img5.mtime.cn/mg/2019/06/20/181310.49294644.jpg">
                                 </div>
                                 <dl class="txtbox">
                                     <dt>复联4蜘蛛侠钥匙扣</dt>
@@ -210,7 +210,7 @@
                     </a>
                 </section>
                 <section class="com_person">
-                    <img src="../../../public/img/touxiang.png" alt="">
+                    <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg32.mtime.cn%2Fup%2F2013%2F01%2F08%2F081313.64016596_128X128.jp" alt="">
                     <div class="person_name">
                         <p class="p_name">方璟南</p>
                         <p class="p_time">昨天 04:18 </p>
@@ -223,7 +223,7 @@
                 <ul class="short_comment_ul">
                     <li>
                         <div class="com_pic">
-                            <img src="../../../public/img/touxiang2.png" alt="">
+                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg32.mtime.cn%2Fup%2F2013%2F03%2F06%2F134245.64687746_48X48.jpg" alt="">
                         </div>
                         <dl class="s_com_txt">
                             <dd>
@@ -249,7 +249,7 @@
                     </li>
                     <li>
                         <div class="com_pic">
-                            <img src="../../../public/img/touxiang2.png" alt="">
+                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg2.mtime.cn%2Fimages%2Fdefault%2Fhead_48X48.gif" alt="">
                         </div>
                         <dl class="s_com_txt">
                             <dd>
@@ -275,7 +275,7 @@
                     </li>
                     <li>
                         <div class="com_pic">
-                            <img src="../../../public/img/touxiang2.png" alt="">
+                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg32.mtime.cn%2Fup%2F2015%2F01%2F01%2F222009.92841832_48X48.jpg" alt="">
                         </div>
                         <dl class="s_com_txt">
                             <dd>
@@ -308,7 +308,17 @@
 
 <script>
 export default {
-    name: 'detail'
+    name: 'detail',
+    data(){
+        return{
+            backgroundImage: '//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F31%2F163639.93224012_1280X720X2.jpg&width=420&height=280&clipType='
+        }
+    },
+    methods:{
+        handleBack(){
+            this.$router.back();
+        }
+    }
 }
 </script>
 
@@ -339,7 +349,7 @@ export default {
             left: 0;
             color: #fff;
             text-align: center;
-            background: url(../../../public/img/h_btn_back.png) no-repeat .3rem center;
+            background: url(../../../../public/img/h_btn_back.png) no-repeat .3rem center;
             background-size: 20%;
         }
         
@@ -352,7 +362,7 @@ export default {
             right: 0;
             color: #fff;
             text-align: center;
-            background: url(../../../public/img/i_h_share.png) no-repeat 0.3rem center;
+            background: url(../../../../public/img/i_h_share.png) no-repeat 0.3rem center;
             background-size: 48%;
         }
         
@@ -365,12 +375,14 @@ export default {
             right: .78rem;
             color: #fff;
             text-align: center;
-            background: url(../../../public/img/i_h_collection.png) no-repeat center center;
+            background: url(../../../../public/img/i_h_collection.png) no-repeat center center;
             background-size: 50%;
         }
         
         .topbackground {
-            background: url(../../../public/img/get6.jpg) center top no-repeat;
+            /* background: url(../../../../public/img/get6.jpg) center top no-repeat; */
+            background-position:center top;
+            background-repeat: no-repeat;
             width: 100%;
             height: 3.36rem;
             background-size: 100% auto;
@@ -523,7 +535,7 @@ export default {
             display: inline-block;
             width: .31188rem;
             height: .28782rem;
-            background: url(../../../public/img/i_dot.png) no-repeat;
+            background: url(../../../../public/img/i_dot.png) no-repeat;
             background-size: cover;
             margin: -.096rem .072rem 0 0;
         }
@@ -585,7 +597,7 @@ export default {
         
         .m_btn_tmore {
             display: block;
-            background: #fff url(../../../public/img/i-tmore.png) no-repeat center center;
+            background: #fff url(../../../../public/img/i-tmore.png) no-repeat center center;
             height: .696rem;
             background-size: 5%;
         }
@@ -622,7 +634,7 @@ export default {
             -webkit-transform: rotate(-90deg);
             -o-transform: rotate(-90deg);
             display: block;
-            background: #fff url(../../../public/img/i-tmore.png) no-repeat center center;
+            background: #fff url(../../../../public/img/i-tmore.png) no-repeat center center;
             background-size: 100%;
         }
         
@@ -745,7 +757,7 @@ export default {
         
         .i_tnext {
             display: block;
-            background: #fff url(../../../public/img/i-tmore.png) no-repeat center center;
+            background: #fff url(../../../../public/img/i-tmore.png) no-repeat center center;
             background-size: auto .192rem;
             height: .696rem;
         }

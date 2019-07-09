@@ -102,11 +102,14 @@
 import TabBar from "@common/tabbar.vue";
 import Newsnav from "./component/newsnav.vue";
 export default {
+  async created(){
+
+  },
   components: {
     Newsnav,
     TabBar
   },
-  name: "order"
+  name: "explore"
 };
 </script>
 
