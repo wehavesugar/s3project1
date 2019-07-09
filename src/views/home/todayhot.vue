@@ -89,7 +89,7 @@ export default {
   components: { Mallshop },
   methods: {
     tonews() {
-      this.$router.push("/news");
+      this.$router.push("/home/news");
     }
   }
 };
