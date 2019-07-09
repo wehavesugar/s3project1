@@ -10,46 +10,23 @@
         </h2>
         <div class="moviescroll">
           <ul>
-            <li>
-              <span>7月5日</span>
+            <li v-for="(item,index) in attention" :key="index">
+              <span>{{item.rMonth}}月{{item.rDay}}日</span>
               <div class="moviebox">
                 <div class="upmoviepic">
                   <a href="#">
-                    <img src="../../../../public/img/get1.jpg" alt />
+                    <img :src="item.image" alt />
                   </a>
                 </div>
                 <div class="movieinfo">
                   <div class="info">
-                    <a href="#">扫黄2天地对决</a>
+                    <a href="#">{{item.title}}</a>
                     <p>
-                      <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
+                      <b class="num">{{item.wantedCount}}</b>
+                      人想看 {{item.type}}
                     </p>
-                    <p class="info_txt">导演：邱礼涛</p>
-                    <p class="info_txt">演员：刘德华,古天乐</p>
-                  </div>
-                  <div class="btn">
-                    <a href="#" class="btn_orange">超前预售</a>
-                    <a href="#" class="btn_green">预告片</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <span>7月5日</span>
-              <div class="moviebox">
-                <div class="upmoviepic">
-                  <a href="#">
-                    <img src="../../../../public/img/get1.jpg" alt />
-                  </a>
-                </div>
-                <div class="movieinfo">
-                  <div class="info">
-                    <a href="#">扫黄2天地对决</a>
-                    <p>
-                      <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
-                    </p>
-                    <p class="info_txt">导演：邱礼涛</p>
-                    <p class="info_txt">演员：刘德华,古天乐</p>
+                    <p class="info_txt">导演：{{item.director}}</p>
+                    <p class="info_txt">演员：{{item.actor1}} {{item.actor2}}</p>
                   </div>
                   <div class="btn">
                     <a href="#" class="btn_orange">超前预售</a>
@@ -76,73 +53,24 @@
           <span>7月</span>
         </div>
         <ul>
-          <li>
+          <li v-for="(item,index) in moviecomings" :key="index">
             <div class="day">
-              <span>5日</span>
+              <span>{{item.rDay}}日</span>
             </div>
             <div class="movieboxlist">
               <div class="moviepic">
                 <a href="#">
-                  <img src="../../../../public/img/get1.jpg" alt />
+                  <img :src="item.image" alt />
                 </a>
               </div>
               <div class="movieinfo">
                 <div class="info">
-                  <a href="#">扫黄2天地对决</a>
+                  <a href="#">{{item.title}}</a>
                   <p>
-                    <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
+                    <b class="num">{{item.wantedCount}}</b>
+                    人想看 - {{item.type}}
                   </p>
-                  <p class="info_txt">导演：邱礼涛</p>
-                </div>
-                <div class="btn">
-                  <a href="#" class="btn_orange">超前预售</a>
-                  <a href="#" class="btn_green">预告片</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="day">
-              <span>5日</span>
-            </div>
-            <div class="movieboxlist">
-              <div class="moviepic">
-                <a href="#">
-                  <img src="../../../../public/img/get1.jpg" alt />
-                </a>
-              </div>
-              <div class="movieinfo">
-                <div class="info">
-                  <a href="#">扫黄2天地对决</a>
-                  <p>
-                    <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
-                  </p>
-                  <p class="info_txt">导演：邱礼涛</p>
-                </div>
-                <div class="btn">
-                  <a href="#" class="btn_orange">超前预售</a>
-                  <a href="#" class="btn_green">预告片</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="day">
-              <span>5日</span>
-            </div>
-            <div class="movieboxlist">
-              <div class="moviepic">
-                <a href="#">
-                  <img src="../../../../public/img/get1.jpg" alt />
-                </a>
-              </div>
-              <div class="movieinfo">
-                <div class="info">
-                  <a href="#">扫黄2天地对决</a>
-                  <p>
-                    <b class="num">1986</b>人想看 - 动作 / 剧情 / 犯罪
-                  </p>
-                  <p class="info_txt">导演：邱礼涛</p>
+                  <p class="info_txt">导演：{{item.director}}</p>
                 </div>
                 <div class="btn">
                   <a href="#" class="btn_orange">超前预售</a>
@@ -160,9 +88,24 @@
 <script>
 import Tabhot from "@components/tabhot.vue";
 import SearchBar from "@components/searchbar.vue";
+import { getMovieComing } from "@api/coming.js";
 export default {
   components: { Tabhot, SearchBar },
-  name: "comming"
+  name: "comming",
+  async created() {
+    let respose = await getMovieComing();
+    //console.log(respose);
+    this.attention = respose.attention;
+    this.moviecomings = respose.moviecomings;
+    //console.log(respose.attention);
+    console.log(respose.moviecomings);
+  },
+  data() {
+    return {
+      attention: [],
+      moviecomings: []
+    };
+  }
 };
 </script>
 
@@ -194,7 +137,7 @@ export default {
 }
 
 .moviescroll ul {
-  width: 3000rem;
+  width: 80rem;
   height: 3.42rem;
   display: flex;
   white-space: nowrap;
