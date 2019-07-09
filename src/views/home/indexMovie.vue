@@ -25,7 +25,7 @@
     </article>
     <article class="indexmovie indexclick">
       <h2>
-        <a href="#/home/comming/">
+        <a href="#/home/coming/">
           <i class="i_tnext"></i>
           <b>即将上映（{{comingMovies}}部）</b>
         </a>
