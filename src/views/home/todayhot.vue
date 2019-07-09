@@ -8,7 +8,7 @@
         </a>
       </h2>
       <ul id="hotPoints">
-        <li nid="1591621" isgallary="false">
+        <li nid="1591621" isgallary="false" @click="tonews()">
           <div class="table">
             <div class="todaypic">
               <a href="#!/news/movie/1591621/">
@@ -86,7 +86,12 @@
 import Mallshop from "../../components/mallShop.vue";
 export default {
   name: "todayHot",
-  components: { Mallshop }
+  components: { Mallshop },
+  methods: {
+    tonews() {
+      this.$router.push("/news");
+    }
+  }
 };
 </script>
 

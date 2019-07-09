@@ -22,9 +22,6 @@ export default {
   methods: {
     backward() {
       this.$router.push("/home");
-    },
-    cityList() {
-      this.$router.push("/citylist");
     }
   }
 };
