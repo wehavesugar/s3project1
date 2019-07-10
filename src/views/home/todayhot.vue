@@ -8,16 +8,21 @@
         </a>
       </h2>
       <ul id="hotPoints">
-        <li v-for="(article,index) in articles" :key="index">
+        <v-touch
+          tag="li"
+          @tap="routeArticle(article.id)"
+          v-for="(article,index) in articles"
+          :key="index"
+        >
           <div class="table">
             <div class="todaypic">
-              <a :href="'#/home/news/'+article.id">
+              <a href="#">
                 <img class="m_img img_box" :src="article.img" />
               </a>
             </div>
             <div class="todaytxt td">
               <h2>
-                <a :href="'#/news/movie'+article.id">{{article.title}}</a>
+                <a href="#">{{article.title}}</a>
               </h2>
               <p>
                 <span>{{article.desc}}</span>
@@ -27,7 +32,7 @@
               </p>
             </div>
           </div>
-        </li>
+        </v-touch>
       </ul>
     </div>
   </section>
@@ -48,7 +53,11 @@ export default {
       articles: []
     };
   },
-  methods: {}
+  methods: {
+    routeArticle(id) {
+      this.$router.push({ name: "article", params: { id } });
+    }
+  }
 };
 </script>
 
