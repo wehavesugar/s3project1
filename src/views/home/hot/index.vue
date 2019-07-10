@@ -8,23 +8,23 @@
           <div class="movie_img">
             <a href="#">
               <img :src="item.img" />
-              <i class="i_hot"></i>
+              <i v-show="item.isHot" class="i_hot"></i>
             </a>
           </div>
           <div class="movie_con">
             <dl>
               <dd>
                 <h3 class="movie_name">{{item.t}}</h3>
-                <i class="m_score">{{item.r}}</i>
+                <i v-show="item.r>0" class="m_score">{{item.r}}</i>
               </dd>
               <dt>
                 <p class="movie_detail">
-                  <i class="i_dot"></i>
+                  <i v-show="item.commonSpecial" class="i_dot"></i>
                   <span>{{item.commonSpecial}}</span>
                 </p>
                 <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
+                  <i v-show="item.is3D" class="info_3D"></i>
+                  <b v-show="item.isDMAX" class="info_screen"></b>
                 </div>
               </dt>
             </dl>
@@ -91,6 +91,7 @@ export default {
   display: flex;
   justify-content: center;
   padding: 0.2rem 0 0.2rem 0;
+  border-bottom: 1px solid #d8d8d8;
 }
 .content ul li .movie_img {
   width: 1.52rem;

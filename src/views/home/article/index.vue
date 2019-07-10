@@ -6,66 +6,18 @@
     </header>
     <div class="content">
       <div class="toptitle">
-        <h2>皮卡丘凭什么征服全世界？</h2>
+        <h2>{{movieArticle.title}}</h2>
         <p>
-          <time>2019-5-7 8:57:00</time>
+          <time>{{movieArticle.time}}</time>
           <span>
-            <a href="#">评论22</a>
+            <a href="#">评论{{movieArticle.commentCount}}</a>
             <a href="#">相关电影/影人</a>
           </span>
         </p>
       </div>
-      <div class="txtmid">
-        <div>
-          <div class="preview-img">
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=https%3A%2F%2Fimg5.mtime.cn%2FCMS%2FNews%2F2019%2F05%2F07%2F011922.32868839_620X620.jpg&width=355&height=0&clipType=3"
-              alt
-            />
-          </div>
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div>
-          <b>时光网特稿</b> 《大侦探皮卡丘》将于5月10日登陆内地影院，作为宝可梦系列首部真人电影，皮卡丘也打破次元壁，从二次元穿越到三次元现身，不知大家对皮卡丘的毛茸茸造型评价如何？
-        </div>
-        <div class="preview-img">
-          <img
-            src="//imgproxy.mtime.cn/get.ashx?uri=https%3A%2F%2Fimg5.mtime.cn%2FCMS%2FNews%2F2019%2F05%2F07%2F125603.66876788_620X620.jpg&width=355&height=0&clipType=3"
-            alt
-          />
-        </div>
-        <div class="news_editor">
-          <p>(作者：日灼 编辑：日灼)</p>
-        </div>
+      <div class="txtmid" v-html="movieArticle.content"></div>
+      <div class="news_editor">
+        <p>(作者：{{movieArticle.author}} 编辑：{{movieArticle.editor}})</p>
       </div>
     </div>
     <div class="news_tool">
@@ -73,7 +25,7 @@
         <li class="reply">
           <i class="i_reply">
             <b class="replynum">
-              <span>22</span>
+              <span>{{movieArticle.commentCount}}</span>
             </b>
           </i>
         </li>
@@ -88,8 +40,20 @@
 </template>
 
 <script>
+import { getArticle } from "@api/article";
 export default {
-  name: "news",
+  name: "article",
+  props: ["id"],
+  async created() {
+    let response = await getArticle(this.id);
+    this.movieArticle = response;
+    console.log(this.movieArticle);
+  },
+  data() {
+    return {
+      movieArticle: {}
+    };
+  },
   methods: {
     backward() {
       this.$router.back();
@@ -165,14 +129,22 @@ export default {
 }
 .txtmid {
   overflow: hidden;
-  font-size: 0.3rem;
+  font-size: 0.36rem;
 }
-.preview-img img {
-  max-width: 100%;
-  height: 3.6rem;
+img {
+  width: 100% !important;
+}
+.wrap .content .txtmid img {
+  display: block;
+  width: 100%;
 }
 .txtmid > div {
   padding-top: 0.8rem;
+}
+.news_editor {
+  padding: 0.3rem 0;
+  font-size: 0.4rem;
+  font-weight: 900;
 }
 .news_tool {
   padding: 0.1rem 0.32rem;

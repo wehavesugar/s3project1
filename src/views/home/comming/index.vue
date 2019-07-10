@@ -73,8 +73,8 @@
                   <p class="info_txt">导演：{{item.director}}</p>
                 </div>
                 <div class="btn">
-                  <a href="#" class="btn_orange">超前预售</a>
-                  <a href="#" class="btn_green">预告片</a>
+                  <a v-if="item.isTicket" href="#" class="btn_orange">超前预售</a>
+                  <a v-if="item.isVideo" href="#" class="btn_green">预告片</a>
                 </div>
               </div>
             </div>
