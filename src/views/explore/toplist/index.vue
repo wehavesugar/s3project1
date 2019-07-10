@@ -40,10 +40,10 @@
                 </ul>
             </div>
             <ul class="topnews">
-                <li class="_link" v-for="(item, index) in toplistNews"
+                <v-touch tag='li' @tap="handleTo(item.id)" class="_link" v-for="(item, index) in toplistNews"
                 :key='index'
                 :id=item.id>
-                    <a href="javascript:void(0);"  @click="handleTo(item.id)">
+                    <a href="javascript:void(0);">
                         <div class="toptxt">
                             <h2>
                                 <b>{{item.topListNameCn}}</b>
@@ -52,7 +52,7 @@
                         </div>
                         <i class="i_tnext"></i>
                     </a>
-                </li>
+                </v-touch>
             </ul>
         </div>
     </div>
@@ -69,7 +69,7 @@ export default {
         let response2 = await banner();
         this.toplistNews = response.topLists;
         this.toplistBanner = response2.topList;
-        console.log(response);
+        
     },
     components:{
         Newsnav,
@@ -85,7 +85,6 @@ export default {
     methods:{
         handleTo(id){
             this.$router.push({name:'movie', params:{id}});
-            console.log(id)
         }
     }
 }

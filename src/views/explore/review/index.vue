@@ -59,7 +59,6 @@ export default {
         let response2 = await banner();
         this.reviewBanner = response2.review;
         this.reviewList = response;
-        console.log(this.reviewList)
     },
     components:{
         Newsnav,

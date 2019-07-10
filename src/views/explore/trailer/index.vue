@@ -33,7 +33,6 @@ export default {
         let response2 = await banner();
         this.trailerNewsList = response.trailers;
         this.trailerBanner = response2.trailer;
-        console.log(this.trailerBanner);
     },
     components:{
         Newsnav,
