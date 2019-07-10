@@ -17,8 +17,15 @@ module.exports = {
 				// pathRewrite: {
 				// 	'^/api': '/'
 				// }
-			}
+			},
 			// secure: false,
+			'/cinema': {
+				target: 'https://ticket-api-m.mtime.cn',
+				changeOrigin: true
+				// pathRewrite: {
+				// 	'^/api': '/'
+				// }
+			}
 		}
 	},
 

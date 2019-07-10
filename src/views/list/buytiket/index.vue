@@ -9,13 +9,13 @@
         <ul>
           <li>
             <div class="title">
-              <h3>北京金逸国际影城荟聚店</h3>
+              <h3>{{cinema.name}}</h3>
               <div class="icon">
-                <i class="i_01"></i>
-                <i class="i_02"></i>
-                <i class="i_03"></i>
-                <i class="i_04"></i>
-                <i class="i_05"></i>
+                <i v-if="cinema.feature.hasServiceTicket" class="i_01"></i>
+                <i v-if="cinema.feature.has3D" class="i_02"></i>
+                <i v-if="cinema.feature.hasPark" class="i_03"></i>
+                <i v-if="cinema.feature.hasIMAX" class="i_04"></i>
+                <i v-if="cinema.feature.hasVIP" class="i_05"></i>
               </div>
             </div>
           </li>
@@ -29,32 +29,11 @@
       </div>
       <div class="hotmovie">
         <ul>
-          <li>
+          <li v-for="(item,index) in movies" :key="index">
             <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../../../../public/img/get1.jpg" />
-              <b class="m_title">蜘蛛侠：英雄归来</b>
-              <i class="m_score">8.1</i>
+              <img :src="item.img" />
+              <b class="m_title">{{item.title}}</b>
+              <i v-if="item.ratingFinal" class="m_score">{{item.ratingFinal}}</i>
             </a>
           </li>
         </ul>
@@ -62,8 +41,8 @@
       <div class="select">
         <div class="movie_title">
           <a href="#">
-            <h3 class="select_tit">蜘蛛侠：英雄归来</h3>
-            <p>100分钟 - 动作 / 剧情 / 犯罪</p>
+            <h3 class="select_tit">{{item.title}}</h3>
+            <p>{{item.length}} - {{item.type}}</p>
             <i class="more"></i>
           </a>
         </div>
@@ -144,8 +123,26 @@
 </template>
 
 <script>
+import { getCinema } from "@api/buyTiket";
 export default {
   name: "buytiket",
+  async created() {
+    let response = await getCinema(this.cinemaId);
+    this.cinema = response.data.cinema;
+    console.log(this.cinema);
+    this.movies = response.data.movies;
+    console.log(this.movies);
+    this.showtimes = response.data.showtimes;
+    console.log(this.showtimes);
+  },
+  data() {
+    return {
+      cinemaId: "9694",
+      cinema: {},
+      movies: [],
+      showtimes: []
+    };
+  },
   methods: {
     backward() {
       this.$router.back();
@@ -308,6 +305,7 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
   font-weight: normal;
+  text-align: center;
 }
 .m_score {
   display: block;
