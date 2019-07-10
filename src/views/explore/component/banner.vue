@@ -1,11 +1,10 @@
 <template>
     <div class="banner">
         <div class='imgbox'>
-            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F07%2F19%2F103505.79149520.jpg" alt="《勇敢者游戏2》首曝预告强森好搞笑">
+            <img :src=trailerBanner.imageUrl>
         </div>
         <h2 class="backtitle">
-            <b>《勇敢者游戏2》首曝预告
-                强森好搞笑</b>
+            <b>{{trailerBanner.title}}</b>
             <i class="i-vedio"></i>
             <!--无法显示,另外以下的播放按钮-->
         </h2>
@@ -14,7 +13,12 @@
 
 <script>
 export default {
-    name: 'banner'
+    name: 'banner',
+    props:{
+        trailerBanner:{
+            
+        }
+    }
 }
 </script>
 

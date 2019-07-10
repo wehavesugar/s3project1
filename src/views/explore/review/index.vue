@@ -5,36 +5,38 @@
             <Newsnav/>
             <div class="banner">
                 <div class='imgbox'>
-                    <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F03%2F01%2F173620.86296561.jpg" alt="这明明是《蜘蛛侠：谁是卧底》啊!">
+                    <img :src=reviewBanner.imageUrl>
                 </div>
                 <div class="smallpic">
-                    <img alt="蜘蛛侠：英雄远征" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F31%2F163639.93224012_1280X720X2.jpg">
+                    <img :src=reviewBanner.posterUrl>
                 </div>
                 <h2 class="backtitle">
-                    <b>蜘蛛侠：英雄远征</b>
+                    <b>{{reviewBanner.movieName}}</b>
                     <span>
                         <i class="i_block i_dot"></i>
-                        <em>这明明是《蜘蛛侠：谁是卧底》..</em>
+                        <em>{{reviewBanner.title}}</em>
                     </span>
                 </h2>
             </div>
-            <div class="moviecomment ">
+            <div class="moviecomment">
                 <ul class="_reviewList">
-                    <li>
+                    <li v-for="(item, index) in reviewList.slice(1)"
+                    :key="index"
+                    >
                         <h2>
-                            <a href="javascript:;">这明明是《蜘蛛侠：谁是卧底》啊!</a>
+                            <a href="javascript:;">{{item.title}}</a>
                         </h2>
                         <div class="cinema_reviews">
                             <div class="cine_user">
-                                <img alt="冷子墨" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg32.mtime.cn%2Fup%2F2013%2F06%2F26%2F161117.68950441_128X128.jpg">
+                                <img :src=item.userImage>
                             </div>
                             <div class="cine_txt">
                                 <p>
-                                    <b>冷子墨-评分
-                                        <strong>《蜘蛛侠：英雄远征》</strong>
+                                    <b>{{item.nickname}}-评分
+                                        <strong>《{{item.relatedObj.title}}》</strong>
                                     </b>
-                                    <em class="m_score">
-                                        <i>6.0</i>
+                                    <em class="m_score" v-if="item.rating">
+                                        <i>{{item.rating}}</i>
                                     </em>
                                 </p>
                             </div>
@@ -49,10 +51,25 @@
 <script>
 import Newsnav from '../component/newsnav.vue'
 import TabBar from "@common/tabbar.vue";
+import {banner} from "@api/explore";
+import {reviewList} from "@api/explore";
 export default {
+    async created(){
+        let response = await reviewList()
+        let response2 = await banner();
+        this.reviewBanner = response2.review;
+        this.reviewList = response;
+        console.log(this.reviewList)
+    },
     components:{
         Newsnav,
         TabBar
+    },
+    data(){
+       return{
+            reviewBanner:{},
+            reviewList:[]
+       }
     },
     name: 'review'
 }
@@ -139,17 +156,17 @@ export default {
         
         ._reviewList li {
             border-bottom: 1px solid #d8d8d8;
-            padding: 0 .36rem .312rem 0;
+            padding: .36rem .36rem .312rem 0;
             margin-right: -1.5em;
         }
         
         ._reviewList li h2 {
-            padding-bottom: .168em;
+            padding-bottom: .168rem;
             font-weight: bold;
         }
         
         ._reviewList li h2 a {
-            font-size: .37rem;
+            font-size: .28rem;
             color: #333;
         }
         

@@ -3,50 +3,17 @@
         <TabBar/>
         <div id="main">
             <Newsnav/>
-            <Banner/>
+            <Banner :trailerBanner = 'trailerBanner'/>
             <ul class="newslist">
-                <li class="table">
+                <li class="table" v-for="(item, index) in trailerNewsList" :key="index">
                     <div class="npic">
                         <a href="javascript:void(0);">
                             <i class="i_video"></i>
-                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F06%2F29%2F002009.16684021_120X90X4.jpg">
+                            <img :src= item.coverImg>
                         </a>
                     </div>
                     <div class="newstxt">
-                        <h2>《速度与激情:特别行动》曝全新..</h2>
-                    </div>
-                </li>
-                <li class="table">
-                    <div class="npic">
-                        <a href="javascript:void(0);">
-                            <i class="i_video"></i>
-                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F06%2F29%2F002009.16684021_120X90X4.jpg">
-                        </a>
-                    </div>
-                    <div class="newstxt">
-                        <h2>《速度与激情:特别行动》曝全新..</h2>
-                    </div>
-                </li>
-                <li class="table">
-                    <div class="npic">
-                        <a href="javascript:void(0);">
-                            <i class="i_video"></i>
-                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F06%2F29%2F002009.16684021_120X90X4.jpg">
-                        </a>
-                    </div>
-                    <div class="newstxt">
-                        <h2>《速度与激情:特别行动》曝全新..</h2>
-                    </div>
-                </li>
-                <li class="table">
-                    <div class="npic">
-                        <a href="javascript:void(0);">
-                            <i class="i_video"></i>
-                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F06%2F29%2F002009.16684021_120X90X4.jpg">
-                        </a>
-                    </div>
-                    <div class="newstxt">
-                        <h2>《速度与激情:特别行动》曝全新..</h2>
+                        <h2>{{item.movieName}}</h2>
                     </div>
                 </li>
             </ul>
@@ -58,11 +25,26 @@
 import TabBar from "../../../common/tabbar.vue";
 import Newsnav from "../component/newsnav";
 import Banner from '../component/banner.vue';
+import {trailerNewsList} from "@api/explore";
+import { banner } from "@api/explore";
 export default {
+    async created(){
+        let response = await trailerNewsList();
+        let response2 = await banner();
+        this.trailerNewsList = response.trailers;
+        this.trailerBanner = response2.trailer;
+        console.log(this.trailerBanner);
+    },
     components:{
         Newsnav,
         Banner,
         TabBar
+    },
+    data(){
+        return{
+            trailerNewsList:[],
+            trailerBanner:{}
+        }
     },
     name: 'trailer'
 }

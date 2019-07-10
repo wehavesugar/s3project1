@@ -5,10 +5,10 @@
             <Newsnav/>
             <div class="banner">
                 <div class='imgbox'>
-                    <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F03%2F01%2F173620.86296561.jpg" alt="那些荣获奥斯卡的LGBT电影">
+                    <img :src=toplistBanner.imageUrl >
                 </div>
                 <h2 class="backtitle">
-                    <b>那些荣获奥斯卡的LGBT电影</b>
+                    <b>{{toplistBanner.title}}</b>
                 </h2>
             </div>
             <div class="newslist">
@@ -40,35 +40,15 @@
                 </ul>
             </div>
             <ul class="topnews">
-                <li class="_link">
-                    <a href="javascript:void(0);"  @click="handleTo()">
+                <li class="_link" v-for="(item, index) in toplistNews"
+                :key='index'
+                :id=item.id>
+                    <a href="javascript:void(0);"  @click="handleTo(item.id)">
                         <div class="toptxt">
                             <h2>
-                                <b>昆汀·塔伦蒂诺个人推荐私宠电影Top20</b>
+                                <b>{{item.topListNameCn}}</b>
                             </h2>
-                            <p class="txt_elli"><span>昆汀也是一个狂热的影迷</span></p>
-                        </div>
-                        <i class="i_tnext"></i>
-                    </a>
-                </li>
-                <li class="_link">
-                    <a href="javascript:void(0);">
-                        <div class="toptxt">
-                            <h2>
-                                <b>10部和春天有关的电影</b>
-                            </h2>
-                            <p class="txt_elli"><span>人生百味，浸透在春日里。</span></p>
-                        </div>
-                        <i class="i_tnext"></i>
-                    </a>
-                </li>
-                <li class="_link">
-                    <a href="javascript:void(0);">
-                        <div class="toptxt">
-                            <h2>
-                                <b>10部穿越回过去和熟悉的人相见的电影</b>
-                            </h2>
-                            <p class="txt_elli"><span>主人公穿越回过去和熟悉的人相见</span></p>
+                            <p class="txt_elli"><span>{{item.summary}}</span></p>
                         </div>
                         <i class="i_tnext"></i>
                     </a>
@@ -81,17 +61,32 @@
 <script>
 import TabBar from "@common/tabbar.vue";
 import Newsnav from '../component/newsnav.vue'
+import {banner} from "@api/explore";
+import { toplistNews } from "@api/explore";
 export default {
+    async created(){
+        let response = await toplistNews();
+        let response2 = await banner();
+        this.toplistNews = response.topLists;
+        this.toplistBanner = response2.topList;
+        console.log(response);
+    },
     components:{
         Newsnav,
         TabBar
     },
+    data(){
+        return{
+            toplistNews:[],
+            toplistBanner:{}
+        }
+    },
     name: 'toplist',
     methods:{
-        handleTo(){
+        handleTo(id){
             // let toIndex = index
-            this.$router.push('/toplist/movie');
-            console.log('to')
+            this.$router.push({name:'movie', params:{id}});
+            console.log()
         }
     }
 }
@@ -234,7 +229,7 @@ export default {
         }
         
         .topnews li a h2 b {
-            font-size: .36rem;
+            font-size: .24rem;
             color: #333;
             font-weight: bold;
         }
@@ -246,8 +241,14 @@ export default {
         }
         
         .topnews li a p span {
-            font-size: .3rem;
-            color: #777;
+                font-size: .3rem;
+                color: #777;
+                width: 100%;
+                height: .4rem;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                display: inline-block;
         }
         
         .topnews li .i_tnext {

@@ -217,8 +217,13 @@
 </template>
 
 <script>
-
+import {topListDetails} from "@api/explore";
 export default {
+    async created(){
+        let response = await topListDetails(this.num);
+        console.log(this.num);
+    },
+    props:['num'],
     name:'movie',
     methods:{
         handleack(){
