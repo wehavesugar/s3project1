@@ -47,7 +47,6 @@ export default {
   async created() {
     const response = await getTodayHot();
     this.articles = response.hotPoints;
-    console.log(response);
   },
   data() {
     return {

@@ -17,6 +17,10 @@ module.exports = {
 				// pathRewrite: {
 				// 	'^/api': '/'
 				// }
+			},
+			'/api': {
+				target: 'https://ticket-m.mtime.cn',
+				changeOrigin: true
 			}
 			// secure: false,
 		}
