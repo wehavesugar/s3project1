@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     cinemaRoute(id) {
-      this.$router.push({ name: "buyTicket", params: { id } });
+      this.$router.push({ name: "buyTicket", params: { cinemaId: id } });
     }
   },
   data() {

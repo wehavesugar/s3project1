@@ -8,6 +8,7 @@ import mine from './mine';
 import explore from './explore';
 import citylist from './citylist';
 import article from './article';
+import buyTicket from './buyTicket';
 
 Vue.use(Router);
 
@@ -21,6 +22,7 @@ export default new Router({
 		explore,
 		citylist,
 		article,
+		buyTicket,
 		{
 			path: '/',
 			redirect: '/home'
@@ -60,10 +62,6 @@ export default new Router({
 		{
 			path: '/search',
 			component: () => import('@views/home/search/index.vue')
-		},
-		{
-			path: '/list/buytiket',
-			component: () => import('@views/list/buytiket/index.vue')
 		}
 	]
 });

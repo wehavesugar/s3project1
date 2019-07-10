@@ -123,10 +123,12 @@
 </template>
 
 <script>
-import { getCinema } from "@api/buyTiket";
+import { getCinema } from "@api/buyTicket";
 export default {
-  name: "buytiket",
+  name: "buyTicket",
+  props: ["cinemaId"],
   async created() {
+    console.log(this.cinemaId);
     let response = await getCinema(this.cinemaId);
     this.cinema = response.data.cinema;
     console.log(this.cinema);
@@ -137,7 +139,6 @@ export default {
   },
   data() {
     return {
-      cinemaId: "9694",
       cinema: {},
       movies: [],
       showtimes: []
