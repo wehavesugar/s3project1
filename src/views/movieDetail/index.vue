@@ -349,7 +349,7 @@ export default {
             left: 0;
             color: #fff;
             text-align: center;
-            background: url(../../../../public/img/h_btn_back.png) no-repeat .3rem center;
+            background: url(../../../public/img/h_btn_back.png) no-repeat .3rem center;
             background-size: 20%;
         }
         
@@ -362,7 +362,7 @@ export default {
             right: 0;
             color: #fff;
             text-align: center;
-            background: url(../../../../public/img/i_h_share.png) no-repeat 0.3rem center;
+            background: url(../../../public/img/i_h_share.png) no-repeat 0.3rem center;
             background-size: 48%;
         }
         
@@ -375,12 +375,12 @@ export default {
             right: .78rem;
             color: #fff;
             text-align: center;
-            background: url(../../../../public/img/i_h_collection.png) no-repeat center center;
+            background: url(../../../public/img/i_h_collection.png) no-repeat center center;
             background-size: 50%;
         }
         
         .topbackground {
-            /* background: url(../../../../public/img/get6.jpg) center top no-repeat; */
+            /* background: url(../../../public/img/get6.jpg) center top no-repeat; */
             background-position:center top;
             background-repeat: no-repeat;
             width: 100%;
@@ -535,7 +535,7 @@ export default {
             display: inline-block;
             width: .31188rem;
             height: .28782rem;
-            background: url(../../../../public/img/i_dot.png) no-repeat;
+            background: url(../../../public/img/i_dot.png) no-repeat;
             background-size: cover;
             margin: -.096rem .072rem 0 0;
         }
@@ -597,7 +597,7 @@ export default {
         
         .m_btn_tmore {
             display: block;
-            background: #fff url(../../../../public/img/i-tmore.png) no-repeat center center;
+            background: #fff url(../../../public/img/i-tmore.png) no-repeat center center;
             height: .696rem;
             background-size: 5%;
         }
@@ -634,7 +634,7 @@ export default {
             -webkit-transform: rotate(-90deg);
             -o-transform: rotate(-90deg);
             display: block;
-            background: #fff url(../../../../public/img/i-tmore.png) no-repeat center center;
+            background: #fff url(../../../public/img/i-tmore.png) no-repeat center center;
             background-size: 100%;
         }
         
@@ -757,7 +757,7 @@ export default {
         
         .i_tnext {
             display: block;
-            background: #fff url(../../../../public/img/i-tmore.png) no-repeat center center;
+            background: #fff url(../../../public/img/i-tmore.png) no-repeat center center;
             background-size: auto .192rem;
             height: .696rem;
         }

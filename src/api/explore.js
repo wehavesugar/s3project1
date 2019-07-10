@@ -29,11 +29,11 @@ export const reviewList = () =>
         t: t
     });
 
-export const topListDetails = (num) =>
+export const topListDetails = (id) =>
     http('get', 'Service/callback.mi/TopList/TopListDetails.api', {
         t: t,
         pageIndex: 1,
         type: 2,
-        toplistId: num,
-        pageSubAreaID: num
+        toplistId: id,
+        pageSubAreaID: id
     });

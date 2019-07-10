@@ -84,9 +84,8 @@ export default {
     name: 'toplist',
     methods:{
         handleTo(id){
-            // let toIndex = index
             this.$router.push({name:'movie', params:{id}});
-            console.log()
+            console.log(id)
         }
     }
 }

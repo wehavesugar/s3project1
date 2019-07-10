@@ -219,11 +219,11 @@
 <script>
 import {topListDetails} from "@api/explore";
 export default {
-    async created(){
-        let response = await topListDetails(this.num);
-        console.log(this.num);
+    async created(id){
+        let response = await topListDetails(this.id);
+        console.log(this.id);
     },
-    props:['num'],
+    props:['id'],
     name:'movie',
     methods:{
         handleack(){
