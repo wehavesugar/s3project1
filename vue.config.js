@@ -18,6 +18,10 @@ module.exports = {
 				// 	'^/api': '/'
 				// }
 			},
+			'/api': {
+				target: 'https://ticket-m.mtime.cn',
+				changeOrigin: true
+			},
 			// secure: false,
 			'/cinema': {
 				target: 'https://ticket-api-m.mtime.cn',
