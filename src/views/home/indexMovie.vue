@@ -8,8 +8,13 @@
         </a>
       </h2>
       <ul style="overflow: hidden;">
-        <li v-for="(movie,index) in movies.slice(0,8)" :key="index">
-          <a :href="'#/movie/'+movie.id+'/'">
+        <v-touch
+          tag="li"
+          @tap="routeMovieDetail(movie.id)"
+          v-for="(movie,index) in movies.slice(0,8)"
+          :key="index"
+        >
+          <a href="#">
             <div class="mpic">
               <img :src="movie.img" class="img_box" />
               <em v-if="movie.r>0" class="m_score">
@@ -20,7 +25,7 @@
               <span>{{movie.t}}</span>
             </p>
           </a>
-        </li>
+        </v-touch>
       </ul>
     </article>
     <article class="indexmovie indexclick">
@@ -42,6 +47,12 @@ export default {
     let response = await getHomeData();
     this.movies = response.ms;
     this.comingMovies = response.totalComingMovie;
+  },
+  methods: {
+    routeMovieDetail(id) {
+      console.log(id);
+      this.$router.push({ name: "movieDetail", params: { id } });
+    }
   },
   data() {
     return {
