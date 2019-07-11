@@ -78,7 +78,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .mall_type {
   margin-bottom: 0.3rem;
   padding-bottom: 0.32rem;

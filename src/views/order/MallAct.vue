@@ -170,7 +170,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .mall_act {
   position: relative;
   zoom: 1;
