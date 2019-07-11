@@ -3,12 +3,12 @@
     <div class="shop01">
       <div class="shopmid">
         <a
-          data-href="https://feature.mtime.cn/mobile/item/2019/deadpool2new/?app_mall_banner_deadpool2new="
+          :data-href=shop01.url
         >
           <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F01%2F24%2F144503.80926021.jpg&amp;width=375&amp;height=450&amp;clipType=4"
+            :data-original=shop01.img
             class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F01%2F24%2F144503.80926021.jpg&amp;width=375&amp;height=450&amp;clipType=4"
+            :src=shop01.img
             style="display: block;"
           />
           <div class="countdown"></div>
@@ -17,11 +17,11 @@
     </div>
     <div class="shop02">
       <div class="shopmid">
-        <a data-href="https://m.mtime.cn/#!/commerce/list/?q=%E5%A4%8D%E4%BB%87%E8%80%85">
+        <a :data-href=shop02.url>
           <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F03%2F174427.96016382.jpg&amp;width=374&amp;height=225&amp;clipType=4"
+            :data-original=shop02.image
             class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F03%2F174427.96016382.jpg&amp;width=374&amp;height=225&amp;clipType=4"
+            :src=shop02.image
             style="display: block;"
           />
         </a>
@@ -29,11 +29,11 @@
     </div>
     <div class="shop03">
       <div class="shopmid">
-        <a data-href="https://m.mtime.cn/#!/commerce/list/?q=%E6%9D%83%E5%8A%9B">
+        <a :data-href=shop03.url>
           <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F03%2F174520.77881769.jpg&amp;width=374&amp;height=224&amp;clipType=4"
+            :data-original=shop03.image
             class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F03%2F174520.77881769.jpg&amp;width=374&amp;height=224&amp;clipType=4"
+            :src=shop03.image
             style="display: block;"
           />
         </a>
@@ -41,11 +41,11 @@
     </div>
     <div class="shop04 m_bg_whiteb">
       <div class="shopmid">
-        <a data-href="https://m.mtime.cn/#!/commerce/list/?q=%E7%9A%AE%E5%8D%A1%E4%B8%98">
+        <a :data-href=shop04.url>
           <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F03%2F174012.80503273.jpg&amp;width=750&amp;height=223&amp;clipType=4"
+            :data-original=shop04.img
             class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F03%2F174012.80503273.jpg&amp;width=750&amp;height=223&amp;clipType=4"
+            :src=shop04.img
             style="display: block;"
           />
           <div class="countdown"></div>
@@ -56,8 +56,24 @@
 </template>
 
 <script>
+import { marketFirstPage } from '../../api/order.js'
 export default {
-  name: "MallShop"
+  name: "MallShop",
+  async created(){
+    let response = await marketFirstPage();
+    this.shop01 = response.cellA;
+    this.shop02 = response.cellC.list[0];
+    this.shop03 = response.cellC.list[1];
+    this.shop04 = response.cellB;
+  },
+  data() {
+    return {
+      shop01:{},
+      shop02:{},
+      shop03:{},
+      shop04:{}
+    };
+  }
 };
 </script>
 

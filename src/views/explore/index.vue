@@ -4,16 +4,7 @@
     <div id="main">
       <Newsnav />
       <Banner :getBanner = 'getBanner' />
-      <!-- <div class="banner">
-        <div class="imgbox">
-          <img :src="exploreNewsTitle.imageUrl" />
-        </div>
-        <h2 class="backtitle">
-          <b>{{exploreNewsTitle.title}}</b>
-        </h2>
-      </div> -->
       <ul class="newslist">
-
 
         <li
           v-for="(item,index) in exploreNewsList"
@@ -45,6 +36,7 @@
           </div>
         </li>
       </ul>
+      <AddMore />
     </div>
   </div>
 </template>
@@ -52,15 +44,18 @@
 <script>
 import TabBar from "@common/tabbar.vue";
 import Newsnav from "./component/newsnav.vue";
-import Banner from './component/banner.vue'
+import Banner from './component/banner.vue';
+import AddMore from './component/addmore.vue';
 import { banner } from "@api/explore";
 import { exploreNewsList } from "@api/explore";
+
 
 export default {
     components: {
     Newsnav,
     TabBar,
-    Banner
+    Banner,
+    AddMore
   },
 
   async created() {
@@ -68,13 +63,11 @@ export default {
     let response2 = await banner();
     this.exploreNewsList = response.newsList;
     this.getBanner = response2.news;
-    // console.log(this.exploreNewsList);
 
 
 
     var t = new Date().getTime();
     this.time = parseInt(t / 1000);
-        // console.log(this.time,this.exploreNewsList[0].publishTime);
   },
   data() {
     return {
@@ -272,4 +265,6 @@ export default {
   display: block;
   margin-right: 0.90234rem;
 }
+
+
 </style>

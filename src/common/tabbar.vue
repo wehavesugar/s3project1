@@ -12,11 +12,11 @@
           <em v-if="item.title == '商城'" class="new">NEW</em>
         </a>
       </router-link>
-      <li class="td" @click="handleTo()">
+      <v-touch tag='li' class="td" @tap="handleTo()">
         <a href="#">
           <i class="ico_my"></i>
         </a>
-      </li>
+      </v-touch>
     </ul>
   </div>
 </template>

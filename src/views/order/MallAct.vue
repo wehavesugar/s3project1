@@ -3,9 +3,10 @@
     <div id="divTopic">
       <!--bg-->
       <dl class="bg" data-selector="bgList">
-        <dd
-          style="background-image: url(&quot;//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F07%2F20%2F155300.52298962.jpg&amp;width=640&amp;height=253&amp;clipType=4&quot;); display: block;"
-        ></dd>
+        <dd 
+          :style="'background-image:url(' + bgUrl +')'"
+        >
+        </dd>
       </dl>
       <!--bg end-->
       <!--img-->
@@ -14,19 +15,19 @@
           class="table"
           style="transform: translateZ(0px); will-change: transform; width: 9.975rem; left: 0px;"
         >
-          <dd data-index="0">
+          <dd data-index="0" v-for="(item, index) in topic.slice(0,4)" :key="index">
             <div class="layer">
               <div class="inner">
                 <img
                   data-selector="checked"
                   class="m_img select"
-                  src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F07%2F20%2F151623.33284816.jpg"
+                  :src=item.checkedImage
                 />
                 <div class="mark" style="display: none;"></div>
               </div>
             </div>
           </dd>
-          <dd data-index="1">
+          <!-- <dd data-index="1">
             <div class="layer">
               <div class="inner">
                 <img
@@ -73,29 +74,29 @@
                 <div class="mark"></div>
               </div>
             </div>
-          </dd>
+          </dd> -->
         </dl>
       </div>
       <div class="mall_actul">
         <ul class="table" data-selector="content">
           <li class="td" style>
             <div class="acttitle">
-              <h4>Star Wars</h4>
-              <h3>星球大战</h3>
+              <h4>{{topic0.titleEn}}</h4>
+              <h3>{{topic0.titleCn}}</h3>
             </div>
             <dl class="actdd fix">
-              <dd data-goodsid="107091">
+              <dd :data-goodsid=item.goodsId v-for="(item, index) in goods" :key="index">
                 <img
-                  src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F04%2F110813.63942368_600X600X1.jpg&amp;width=196&amp;height=196&amp;clipType=4"
+                  :src="item.image"
                   class="m_img"
                 />
-                <h3>星球大战LOGO款马克杯</h3>
+                <h3>{{item.title}}</h3>
                 <p data-selector="price">
                   ￥
                   <strong>69</strong>
                 </p>
               </dd>
-              <dd data-goodsid="107094">
+              <!-- <dd data-goodsid="107094">
                 <img
                   src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F22%2F181803.82756955_600X600X1.jpg&amp;width=196&amp;height=196&amp;clipType=4"
                   class="m_img"
@@ -149,7 +150,7 @@
                   ￥
                   <strong>45</strong>
                 </p>
-              </dd>
+              </dd> -->
             </dl>
             <!--list-->
             <div class="actmore">
@@ -165,9 +166,26 @@
 </template>
 
 <script>
+import { marketFirstPage } from '../../api/order.js'
 export default {
-  name: "MallAct"
+  name: "MallAct",
+  async created(){
+    let response = await marketFirstPage();
+    this.topic = response.topic;
+    this.bgUrl = this.topic[0].backgroupImage;
+    this.topic0 = this.topic[0];
+    this.goods = this.topic[0].subList;
+  },
+  data(){
+    return{
+      topic:[],
+      bgUrl:'',
+      topic0:{},
+      goods:[]
+    }
+  }
 };
+
 </script>
 
 <style>
@@ -199,6 +217,7 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
+  display: block;
 }
 .mall_act .actlist {
   height: 3.175rem;

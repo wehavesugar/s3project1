@@ -54,6 +54,7 @@
           </a>
         </v-touch>
       </ul>
+      <AddMore />
     </div>
   </div>
 </template>
@@ -62,13 +63,15 @@
 import TabBar from "@common/tabbar.vue";
 import Newsnav from "../component/newsnav.vue";
 import Banner from "../component/banner.vue";
+import AddMore from "../component/addmore.vue";
 import { banner } from "@api/explore";
 import { toplistNews } from "@api/explore";
 export default {
   components: {
     Newsnav,
     TabBar,
-    Banner
+    Banner,
+    AddMore
   },
   async created() {
     let response = await toplistNews();
