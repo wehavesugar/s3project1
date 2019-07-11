@@ -3,7 +3,7 @@
     <div class="hea_search">
       <div class="table_v_c">
         <div @click="cityList()" class="cityshow">
-          <b>深圳</b>
+          <b>{{cityName}}</b>
           <i class="i_block i_city"></i>
         </div>
         <p class="input td">
@@ -17,12 +17,19 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "SearchBar",
   methods: {
     cityList() {
       this.$router.push("/citylist");
     }
+  },
+  computed: {
+    ...mapState({
+      cityName: state => state.city.cityName,
+      cityId: state => state.city.cityId
+    })
   }
 };
 </script>

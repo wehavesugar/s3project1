@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Tabhot from "@components/tabhot.vue";
 import SearchBar from "@components/searchbar.vue";
 import { getMovieComing } from "@api/coming.js";
@@ -93,12 +94,17 @@ export default {
   components: { Tabhot, SearchBar },
   name: "comming",
   async created() {
-    let respose = await getMovieComing();
+    let respose = await getMovieComing(this.cityId);
     //console.log(respose);
     this.attention = respose.attention;
     this.moviecomings = respose.moviecomings;
     //console.log(respose.attention);
     console.log(respose.moviecomings);
+  },
+  computed: {
+    ...mapState({
+      cityId: state => state.city.cityId
+    })
   },
   data() {
     return {

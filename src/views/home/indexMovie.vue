@@ -40,18 +40,26 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 import { getHomeData } from "@api/home";
 export default {
   name: "IndexMovie",
   async created() {
-    let response = await getHomeData();
+    console.log(this.cityId)
+    let response = await getHomeData(this.cityId );
     this.movies = response.ms;
     this.comingMovies = response.totalComingMovie;
+  },
+  computed: {
+    ...mapState({
+      cityName: state => state.city.cityName,
+      cityId: state => state.city.cityId
+    })
   },
   methods: {
     routeMovieDetail(id) {
       console.log(id);
-      this.$router.push({ name: "movieDetail", params: { id } });
+      this.$router.push({ name: "movieDetail", params: { id} });
     }
   },
   data() {

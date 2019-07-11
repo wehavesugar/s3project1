@@ -9,105 +9,35 @@
       <span class="ser_cancel">取消</span>
     </div>
     <div>
-      <div class="citylist">
-        <dl>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-          <dd>
-            <a href="#">武汉</a>
-          </dd>
-        </dl>
-      </div>
       <div class="current_hot">
         <dd class="curren">
           <p>当前城市</p>
           <ul>
             <li>
-              <a href="#">深圳</a>
+              <a href="#">{{cityName}}</a>
             </li>
           </ul>
         </dd>
         <dd class="hot_list">
           <p>热门城市</p>
           <ul>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
-            <li>上海</li>
+            <li
+              @click="handleModifyCity(city)"
+              v-for="(city,index) in hotList"
+              :key="index"
+            >{{city.n}}</li>
           </ul>
         </dd>
       </div>
       <div class="cities">
-        <dd>
-          <p></p>
+        <dd v-for="(cats,index) in cityList" :key="index">
+          <p>{{cats.index}}</p>
           <ul>
-            <li>安庆</li>
-            <li>鞍山</li>
-          </ul>
-        </dd>
-        <dd>
-          <p>A</p>
-          <ul>
-            <li>安庆</li>
-            <li>鞍山</li>
-            <li>安康</li>
-            <li>安阳</li>
-          </ul>
-        </dd>
-        <dd>
-          <p>B</p>
-          <ul>
-            <li>安庆</li>
-            <li>鞍山</li>
-            <li>安康</li>
-            <li>安阳安阳</li>
-            <li>安阳</li>
+            <li
+              @click="handleModifyCity(city)"
+              v-for="(city,idx) in cats.list"
+              :key="idx"
+            >{{city.n}}</li>
           </ul>
         </dd>
       </div>
@@ -116,11 +46,33 @@
 </template>
 
 <script>
+import { mapActions, mapState, mapMutations } from "vuex";
 export default {
   name: "citylist",
+  created() {
+    this.getCityList();
+  },
+  computed: {
+    ...mapState({
+      hotList: state => state.city.hotList,
+      cityList: state => state.city.cityList,
+      cityFlag: state => state.city.cityFlag,
+      cityName: state => state.city.cityName
+    })
+  },
   methods: {
+    ...mapActions({
+      getCityList: "city/getCityList"
+    }),
+    ...mapMutations({
+      handleModifyCityInfo: "city/handleModifyCityInfo"
+    }),
     backward() {
       this.$router.back();
+    },
+    handleModifyCity(itm) {
+      this.$router.back();
+      this.handleModifyCityInfo(itm);
     }
   }
 };

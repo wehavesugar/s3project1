@@ -46,15 +46,21 @@
 import Tabhot from "@components/tabhot.vue";
 import SearchBar from "@components/searchbar.vue";
 import { getMovieHot } from "@api/hot.js";
+import { mapState } from "vuex";
 //console.log(getMovieHot);
 export default {
   components: { Tabhot, SearchBar },
   name: "hot",
   async created() {
-    let respose = await getMovieHot();
+    let respose = await getMovieHot(this.cityId);
     //console.log(respose);
     this.hotmovie = respose.ms;
     console.log(respose.ms);
+  },
+  computed: {
+    ...mapState({
+      cityId: state => state.city.cityId
+    })
   },
   data() {
     return {

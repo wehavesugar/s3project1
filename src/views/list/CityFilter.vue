@@ -3,8 +3,8 @@
     <div class="_2c8t9">
       <div class="_ofKlH">
         <div class="_1rior">
-          <div class="_2tj9_">
-            <b>深圳</b>
+          <div @click="routeCityList()" class="_2tj9_">
+            <b>{{cityName}}</b>
             <i class="i_block i_city"></i>
           </div>
           <input type="text" id="searchbox" placeholder="筛选影院" value />
@@ -43,8 +43,19 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  name: "CityFilter"
+  name: "CityFilter",
+  computed: {
+    ...mapState({
+      cityName: state => state.city.cityName
+    })
+  },
+  methods: {
+    routeCityList() {
+      this.$router.push("/citylist");
+    }
+  }
 };
 </script>
 

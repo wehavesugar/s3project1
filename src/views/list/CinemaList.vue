@@ -37,12 +37,18 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { getCinemas } from "@api/getCinema";
 export default {
   name: "CinemaList",
   async created() {
-    let response = await getCinemas(this.locationId);
+    let response = await getCinemas(this.cityId);
     this.cinemaList = response.data.cinemaList;
+  },
+  computed: {
+    ...mapState({
+      cityId: state => state.city.cityId
+    })
   },
   methods: {
     cinemaRoute(id) {
@@ -51,8 +57,7 @@ export default {
   },
   data() {
     return {
-      cinemaList: [],
-      locationId: "366"
+      cinemaList: []
     };
   }
 };
