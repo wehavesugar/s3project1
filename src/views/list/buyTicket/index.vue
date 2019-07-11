@@ -11,11 +11,11 @@
             <div class="title">
               <h3>{{cinema.name}}</h3>
               <div class="icon">
-                <i v-if="cinema.feature.hasServiceTicket" class="i_01"></i>
-                <i v-if="cinema.feature.has3D" class="i_02"></i>
-                <i v-if="cinema.feature.hasPark" class="i_03"></i>
-                <i v-if="cinema.feature.hasIMAX" class="i_04"></i>
-                <i v-if="cinema.feature.hasVIP" class="i_05"></i>
+                <i v-if="cinemaFeature.hasServiceTicket" class="i_01"></i>
+                <i v-if="cinemaFeature.has3D" class="i_02"></i>
+                <i v-if="cinemaFeature.hasPark" class="i_03"></i>
+                <i v-if="cinemaFeature.hasIMAX" class="i_04"></i>
+                <i v-if="cinemaFeature.hasVIP" class="i_05"></i>
               </div>
             </div>
           </li>
@@ -29,11 +29,11 @@
       </div>
       <div class="hotmovie">
         <ul>
-          <li v-for="(item,index) in movies" :key="index">
+          <li v-for="(movie,index) in movies" @click="selectMovie(index)" :key="index">
             <a href="#">
-              <img :src="item.img" />
-              <b class="m_title">{{item.title}}</b>
-              <i v-if="item.ratingFinal" class="m_score">{{item.ratingFinal}}</i>
+              <img :src="movie.img" />
+              <b class="m_title">{{movie.title}}</b>
+              <i v-if="movie.ratingFinal>0" class="m_score">{{movie.ratingFinal}}</i>
             </a>
           </li>
         </ul>
@@ -41,16 +41,19 @@
       <div class="select">
         <div class="movie_title">
           <a href="#">
-            <h3 class="select_tit">{{item.title}}</h3>
-            <p>{{item.length}} - {{item.type}}</p>
+            <h3 class="select_tit">{{movieTitle}}</h3>
+            <p>{{movieLength}} - {{movieType}}</p>
             <i class="more"></i>
           </a>
         </div>
         <div class="search_tab">
           <ul>
-            <li class="on">明天（7月05日）</li>
-            <li>明天（7月05日）</li>
-            <li>明天（7月05日）</li>
+            <li
+              v-for="(date,index) in movies[showIndex].showDates"
+              @click="on(index)"
+              :class="dateIndex==index?'on':''"
+              :key="index"
+            >{{date.substr(5)}}</li>
           </ul>
         </div>
         <div class="downapp">
@@ -60,57 +63,13 @@
         </div>
         <div class="tiket">
           <ul>
-            <li>
-              <div class="time">9:35</div>
+            <li v-for="(data,index) in showtimes[showIndex].list" :key="index">
+              <div class="time">{{new Date(data.showDay*1000).toTimeString().substr(0,5)}}</div>
               <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
+                <p>{{data.versionDesc}} / {{ data.language}}</p>
+                <p>{{data.hall}}</p>
               </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
-              <div class="buy">
-                <a href="#" class="buy_tiket">购票</a>
-              </div>
-            </li>
-            <li>
-              <div class="time">9:35</div>
-              <div class="tip">
-                <p>2D / 中文版</p>
-                <p>八号厅</p>
-              </div>
-              <div class="price">￥39</div>
+              <div class="price">￥{{data.price}}</div>
               <div class="buy">
                 <a href="#" class="buy_tiket">购票</a>
               </div>
@@ -128,25 +87,42 @@ export default {
   name: "buyTicket",
   props: ["cinemaId"],
   async created() {
-    console.log(this.cinemaId);
     let response = await getCinema(this.cinemaId);
+    console.log(response);
     this.cinema = response.data.cinema;
-    console.log(this.cinema);
+    this.cinemaFeature = response.data.cinema.feature;
     this.movies = response.data.movies;
-    console.log(this.movies);
     this.showtimes = response.data.showtimes;
-    console.log(this.showtimes);
+    this.movieTitle = this.movies[0].title;
+    this.movieLength = this.movies[0].length;
+    this.movieType = this.movies[0].type;
+    this.dateIndex = 0;
   },
   data() {
     return {
       cinema: {},
+      cinemaFeature: {},
       movies: [],
-      showtimes: []
+      movieTitle: "",
+      movieLength: "",
+      movieType: "",
+      showtimes: [],
+      showIndex: 0,
+      dateIndex: 0
     };
   },
   methods: {
     backward() {
       this.$router.back();
+    },
+    selectMovie(index) {
+      this.showIndex = index;
+      this.movieTitle = this.movies[index].title;
+      this.movieLength = this.movies[index].length;
+      this.movieType = this.movies[index].type;
+    },
+    on(index) {
+      this.dateIndex = index;
     }
   }
 };
@@ -360,6 +336,7 @@ export default {
   height: 1.06rem;
   overflow-x: scroll;
   background: #eee;
+  text-align: center;
 }
 .search_tab ul {
   height: 1.06rem;
