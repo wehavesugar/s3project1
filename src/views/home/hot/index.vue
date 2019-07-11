@@ -4,242 +4,35 @@
     <SearchBar />
     <div class="content">
       <ul>
-        <li>
+        <li v-for="(item,index) in hotmovie" :key="index">
           <div class="movie_img">
             <a href="#">
-              <img src="../../../../public/img/get2.jpg" />
-              <i class="i_hot"></i>
+              <img :src="item.img" />
+              <i v-show="item.isHot" class="i_hot"></i>
             </a>
           </div>
           <div class="movie_con">
             <dl>
               <dd>
-                <h3 class="movie_name">蜘蛛侠：英雄远征</h3>
-                <i class="m_score">8.1</i>
+                <h3 class="movie_name">{{item.t}}</h3>
+                <i v-show="item.r>0" class="m_score">{{item.r}}</i>
               </dd>
               <dt>
                 <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>蜘蛛侠劫后重生决战千里</span>
+                  <i v-show="item.commonSpecial" class="i_dot"></i>
+                  <span>{{item.commonSpecial}}</span>
                 </p>
                 <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
+                  <i v-show="item.is3D" class="info_3D"></i>
+                  <b v-show="item.isDMAX" class="info_screen"></b>
                 </div>
               </dt>
             </dl>
             <div class="fuc">
-              <i>107家影院上映1246场</i>
-              <a href="#">购票</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="movie_img">
-            <a href="#">
-              <img src="../../../../public/img/get.jpg" />
-              <i></i>
-            </a>
-          </div>
-          <div class="movie_con">
-            <dl>
-              <dd>
-                <h3 class="movie_name">千与千寻</h3>
-                <i class="m_score">8.1</i>
-              </dd>
-              <dt>
-                <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>宫崎骏获奥斯卡之作</span>
-                </p>
-                <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
-                </div>
-              </dt>
-            </dl>
-            <div class="fuc">
-              <i>107家影院上映1246场</i>
-              <a href="#">购票</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="movie_img">
-            <a href="#">
-              <img src="../../../../public/img/get2.jpg" />
-              <i class="i_hot"></i>
-            </a>
-          </div>
-          <div class="movie_con">
-            <dl>
-              <dd>
-                <h3 class="movie_name">蜘蛛侠：英雄远征</h3>
-                <i class="m_score">8.1</i>
-              </dd>
-              <dt>
-                <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>蜘蛛侠劫后重生决战千里</span>
-                </p>
-                <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
-                </div>
-              </dt>
-            </dl>
-            <div class="fuc">
-              <i>107家影院上映1246场</i>
-              <a href="#">购票</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="movie_img">
-            <a href="#">
-              <img src="../../../../public/img/get.jpg" />
-              <i></i>
-            </a>
-          </div>
-          <div class="movie_con">
-            <dl>
-              <dd>
-                <h3 class="movie_name">千与千寻</h3>
-                <i class="m_score">8.1</i>
-              </dd>
-              <dt>
-                <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>宫崎骏获奥斯卡之作</span>
-                </p>
-                <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
-                </div>
-              </dt>
-            </dl>
-            <div class="fuc">
-              <i>107家影院上映1246场</i>
-              <a href="#">购票</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="movie_img">
-            <a href="#">
-              <img src="../../../../public/img/get2.jpg" />
-              <i class="i_hot"></i>
-            </a>
-          </div>
-          <div class="movie_con">
-            <dl>
-              <dd>
-                <h3 class="movie_name">蜘蛛侠：英雄远征</h3>
-                <i class="m_score">8.1</i>
-              </dd>
-              <dt>
-                <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>蜘蛛侠劫后重生决战千里</span>
-                </p>
-                <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
-                </div>
-              </dt>
-            </dl>
-            <div class="fuc">
-              <i>107家影院上映1246场</i>
-              <a href="#">购票</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="movie_img">
-            <a href="#">
-              <img src="../../../../public/img/get.jpg" />
-              <i></i>
-            </a>
-          </div>
-          <div class="movie_con">
-            <dl>
-              <dd>
-                <h3 class="movie_name">千与千寻</h3>
-                <i class="m_score">8.1</i>
-              </dd>
-              <dt>
-                <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>宫崎骏获奥斯卡之作</span>
-                </p>
-                <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
-                </div>
-              </dt>
-            </dl>
-            <div class="fuc">
-              <i>107家影院上映1246场</i>
-              <a href="#">购票</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="movie_img">
-            <a href="#">
-              <img src="../../../../public/img/get2.jpg" />
-              <i class="i_hot"></i>
-            </a>
-          </div>
-          <div class="movie_con">
-            <dl>
-              <dd>
-                <h3 class="movie_name">蜘蛛侠：英雄远征</h3>
-                <i class="m_score">8.1</i>
-              </dd>
-              <dt>
-                <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>蜘蛛侠劫后重生决战千里</span>
-                </p>
-                <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
-                </div>
-              </dt>
-            </dl>
-            <div class="fuc">
-              <i>107家影院上映1246场</i>
-              <a href="#">购票</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="movie_img">
-            <a href="#">
-              <img src="../../../../public/img/get.jpg" />
-              <i></i>
-            </a>
-          </div>
-          <div class="movie_con">
-            <dl>
-              <dd>
-                <h3 class="movie_name">千与千寻</h3>
-                <i class="m_score">8.1</i>
-              </dd>
-              <dt>
-                <p class="movie_detail">
-                  <i class="i_dot"></i>
-                  <span>宫崎骏获奥斯卡之作</span>
-                </p>
-                <div class="info">
-                  <i class="info_3D"></i>
-                  <b class="info_screen"></b>
-                </div>
-              </dt>
-            </dl>
-            <div class="fuc">
-              <i>107家影院上映1246场</i>
+              <i>
+                <i>{{item.cC}}</i>家影院上映
+                <i>{{item.NearestShowtimeCount}}</i>场
+              </i>
               <a href="#">购票</a>
             </div>
           </div>
@@ -252,10 +45,22 @@
 <script>
 import Tabhot from "@components/tabhot.vue";
 import SearchBar from "@components/searchbar.vue";
+import { getMovieHot } from "@api/hot.js";
+//console.log(getMovieHot);
 export default {
   components: { Tabhot, SearchBar },
   name: "hot",
-  methods: {}
+  async created() {
+    let respose = await getMovieHot();
+    //console.log(respose);
+    this.hotmovie = respose.ms;
+    console.log(respose.ms);
+  },
+  data() {
+    return {
+      hotmovie: []
+    };
+  }
 };
 </script>
 
@@ -286,6 +91,7 @@ export default {
   display: flex;
   justify-content: center;
   padding: 0.2rem 0 0.2rem 0;
+  border-bottom: 1px solid #d8d8d8;
 }
 .content ul li .movie_img {
   width: 1.52rem;

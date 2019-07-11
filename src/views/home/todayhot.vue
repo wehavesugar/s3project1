@@ -28,7 +28,7 @@
                 <span>{{article.desc}}</span>
               </p>
               <p>
-                <time>2019-05-07 16:57:00</time>
+                <time>{{timeConverter(article.publishTime)}}</time>
               </p>
             </div>
           </div>
@@ -56,6 +56,18 @@ export default {
   methods: {
     routeArticle(id) {
       this.$router.push({ name: "article", params: { id } });
+    },
+    timeConverter(UNIX_timestamp) {
+      var a = new Date(UNIX_timestamp * 1000);
+      var year = a.getFullYear();
+      var month = a.getMonth() + 1;
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes() < 10 ? "0" + a.getMinutes() : a.getMinutes();
+      var sec = a.getSeconds() < 10 ? "0" + a.getSeconds() : a.getSeconds();
+      var time =
+        year + "-" + month + "-" + date + " " + hour + ":" + min + ":" + sec;
+      return time;
     }
   }
 };

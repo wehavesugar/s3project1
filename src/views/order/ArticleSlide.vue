@@ -88,14 +88,14 @@
 </template>
 
 <script>
-import { AritcleSlide } from "@api/order";
+import { aritcleSlide } from "@api/order.js";
 export default {
-  name: "AritcleSlide",
-  async created(){
-    let response = await AritcleSlide();
-    this.AritcleSlide = response.scrollImg;
-    console.log(response);
-  },
+  // name: "AritcleSlide",
+  // async created() {
+  //   let response = await AritcleSlide();
+  //   this.AritcleSlide = response.scrollImg;
+  //   console.log(response);
+  // },
   data(){
     return{
       AritcleSlide:[]

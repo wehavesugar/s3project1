@@ -1,149 +1,60 @@
 <template>
   <ul class="_zVfpB">
-    <router-link to="/list/buytiket" tag="li" class="_10VN3">
+    <v-touch
+      tag="li"
+      class="_10VN3"
+      v-for="(cinema,index) in cinemaList"
+      :key="index"
+      @tap="cinemaRoute(cinema.cinemaId)"
+    >
       <dl>
         <dt class="_1yfC8">
           <p class="_eaesd">
-            <span>深圳金逸影城（公明嘉域店）</span>
+            <span>{{cinema.cinameName}}</span>
           </p>
-          <p class="_sEOO0">
-            <b>24</b>
+          <p v-if="cinema.minPrice" class="_sEOO0">
+            <b>{{cinema.minPrice/100}}</b>
             <span>元起</span>
           </p>
         </dt>
         <dd class="_1yfC8 _10hXh">
-          <p>深圳市光明新区公明街道松白路宏发嘉域花园一期商业裙楼2层</p>
+          <p>{{cinema.address}}</p>
         </dd>
         <dd class="_HsWfu">
-          <i>3D</i>
-          <i>VIP</i>
-          <i>4D</i>
-          <i>情侣座</i>
+          <i v-if="cinema.feature.has3D">3D</i>
+          <i v-if="cinema.feature.hasFeature4D">4D</i>
+          <i v-if="cinema.feature.hasFeature4K">4K</i>
+          <i v-if="cinema.feature.hasFeatureDolby">杜比</i>
+          <i v-if="cinema.feature.hasFeatureHuge">巨幕</i>
+          <i v-if="cinema.feature.hasIMAX">IMAX</i>
+          <i v-if="cinema.feature.hasLoveseat">情侣座</i>
+          <i v-if="cinema.feature.hasVIP">VIP</i>
         </dd>
         <dd class="_3R7rX"></dd>
       </dl>
-    </router-link>
-    <li class="_10VN3">
-      <dl>
-        <dt class="_1yfC8">
-          <p class="_eaesd">
-            <span>深圳金逸影城（公明嘉域店）</span>
-          </p>
-          <p class="_sEOO0">
-            <b>24</b>
-            <span>元起</span>
-          </p>
-        </dt>
-        <dd class="_1yfC8 _10hXh">
-          <p>深圳市光明新区公明街道松白路宏发嘉域花园一期商业裙楼2层</p>
-        </dd>
-        <dd class="_HsWfu">
-          <i>3D</i>
-          <i>VIP</i>
-          <i>4D</i>
-          <i>情侣座</i>
-        </dd>
-        <dd class="_3R7rX"></dd>
-      </dl>
-    </li>
-    <li class="_10VN3">
-      <dl>
-        <dt class="_1yfC8">
-          <p class="_eaesd">
-            <span>深圳金逸影城（公明嘉域店）</span>
-          </p>
-          <p class="_sEOO0">
-            <b>24</b>
-            <span>元起</span>
-          </p>
-        </dt>
-        <dd class="_1yfC8 _10hXh">
-          <p>深圳市光明新区公明街道松白路宏发嘉域花园一期商业裙楼2层</p>
-        </dd>
-        <dd class="_HsWfu">
-          <i>3D</i>
-          <i>VIP</i>
-          <i>4D</i>
-          <i>情侣座</i>
-        </dd>
-        <dd class="_3R7rX"></dd>
-      </dl>
-    </li>
-    <li class="_10VN3">
-      <dl>
-        <dt class="_1yfC8">
-          <p class="_eaesd">
-            <span>深圳金逸影城（公明嘉域店）</span>
-          </p>
-          <p class="_sEOO0">
-            <b>24</b>
-            <span>元起</span>
-          </p>
-        </dt>
-        <dd class="_1yfC8 _10hXh">
-          <p>深圳市光明新区公明街道松白路宏发嘉域花园一期商业裙楼2层</p>
-        </dd>
-        <dd class="_HsWfu">
-          <i>3D</i>
-          <i>VIP</i>
-          <i>4D</i>
-          <i>情侣座</i>
-        </dd>
-        <dd class="_3R7rX"></dd>
-      </dl>
-    </li>
-    <li class="_10VN3">
-      <dl>
-        <dt class="_1yfC8">
-          <p class="_eaesd">
-            <span>深圳金逸影城（公明嘉域店）</span>
-          </p>
-          <p class="_sEOO0">
-            <b>24</b>
-            <span>元起</span>
-          </p>
-        </dt>
-        <dd class="_1yfC8 _10hXh">
-          <p>深圳市光明新区公明街道松白路宏发嘉域花园一期商业裙楼2层</p>
-        </dd>
-        <dd class="_HsWfu">
-          <i>3D</i>
-          <i>VIP</i>
-          <i>4D</i>
-          <i>情侣座</i>
-        </dd>
-        <dd class="_3R7rX"></dd>
-      </dl>
-    </li>
-    <li class="_10VN3">
-      <dl>
-        <dt class="_1yfC8">
-          <p class="_eaesd">
-            <span>深圳金逸影城（公明嘉域店）</span>
-          </p>
-          <p class="_sEOO0">
-            <b>24</b>
-            <span>元起</span>
-          </p>
-        </dt>
-        <dd class="_1yfC8 _10hXh">
-          <p>深圳市光明新区公明街道松白路宏发嘉域花园一期商业裙楼2层</p>
-        </dd>
-        <dd class="_HsWfu">
-          <i>3D</i>
-          <i>VIP</i>
-          <i>4D</i>
-          <i>情侣座</i>
-        </dd>
-        <dd class="_3R7rX"></dd>
-      </dl>
-    </li>
+    </v-touch>
   </ul>
 </template>
 
 <script>
+import { getCinemas } from "@api/getCinema";
 export default {
-  name: "CinemaList"
+  name: "CinemaList",
+  async created() {
+    let response = await getCinemas(this.locationId);
+    this.cinemaList = response.data.cinemaList;
+  },
+  methods: {
+    cinemaRoute(id) {
+      this.$router.push({ name: "buyTicket", params: { cinemaId: id } });
+    }
+  },
+  data() {
+    return {
+      cinemaList: [],
+      locationId: "366"
+    };
+  }
 };
 </script>
 

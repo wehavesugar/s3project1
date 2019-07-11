@@ -9,6 +9,8 @@ import explore from './explore';
 import citylist from './citylist';
 import article from './article';
 import movie from './explore/movie'
+import buyTicket from './buyTicket';
+import movieDetail from './movieDetails';
 
 Vue.use(Router);
 
@@ -22,7 +24,8 @@ export default new Router({
         explore,
         citylist,
         article,
-        movie,
+        buyTicket,
+        movieDetail,
         {
             path: '/',
             redirect: '/home'
@@ -58,10 +61,9 @@ export default new Router({
                 import ('@views/explore/index.vue')
         },
         {
-            path: '/explore',
-            redirect: '/news',
+            path: '/toplist/movie',
             component: () =>
-                import ('@views/explore/index.vue')
+                import ('@views/explore/movie/index.vue')
         },
         {
             path: '/login',
@@ -72,11 +74,6 @@ export default new Router({
             path: '/search',
             component: () =>
                 import ('@views/home/search/index.vue')
-        },
-        {
-            path: '/list/buytiket',
-            component: () =>
-                import ('@views/list/buytiket/index.vue')
         }
     ]
 });
