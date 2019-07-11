@@ -88,7 +88,7 @@ export default {
   props: ["cinemaId"],
   async created() {
     let response = await getCinema(this.cinemaId);
-    console.log(response);
+    //console.log(response);
     this.cinema = response.data.cinema;
     this.cinemaFeature = response.data.cinema.feature;
     this.movies = response.data.movies;
