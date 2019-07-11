@@ -89,16 +89,20 @@ export default {
   props: ["cinemaId"],
   async created() {
     let response = await getCinema(this.cinemaId);
+    console.log(response);
     this.cinema = response.data.cinema;
     this.cinemaFeature = response.data.cinema.feature;
     this.movies = response.data.movies;
     console.log(this.movies);
-    
+
     this.showtimes = response.data.showtimes;
     this.movieTitle = this.movies[0].title;
     this.movieLength = this.movies[0].length;
     this.movieType = this.movies[0].type;
+    this.showDates = this.movies[0].showDates;
+    this.showList = this.showtimes[0].list;
     this.dateIndex = 0;
+    console.log(this.showList);
   },
   data() {
     return {
@@ -110,6 +114,7 @@ export default {
       movieType: "",
       showtimes: [],
       showDates: [],
+      showList: [],
       showIndex: 0,
       dateIndex: 0,
       maskIndex: 0
@@ -125,7 +130,9 @@ export default {
       this.movieLength = this.movies[index].length;
       this.movieType = this.movies[index].type;
       this.showDates = this.movies[index].showDates;
+      this.showList = this.showtimes[index].list;
       console.log(this.showDates);
+      //console.log(this.showList);
       this.maskIndex = index;
     },
     on(index) {
