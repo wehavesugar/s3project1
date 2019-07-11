@@ -10,7 +10,12 @@
         </h2>
         <div class="moviescroll">
           <ul>
-            <li v-for="(item,index) in attention" :key="index">
+            <v-touch
+              tag="li"
+              @tap="routeMovieDetail(item.id)"
+              v-for="(item,index) in attention"
+              :key="index"
+            >
               <span>{{item.rMonth}}月{{item.rDay}}日</span>
               <div class="moviebox">
                 <div class="upmoviepic">
@@ -34,7 +39,7 @@
                   </div>
                 </div>
               </div>
-            </li>
+            </v-touch>
           </ul>
         </div>
       </div>
@@ -53,7 +58,12 @@
           <span>7月</span>
         </div>
         <ul>
-          <li v-for="(item,index) in moviecomings" :key="index">
+          <v-touch
+            tag="li"
+            @tap="routeMovieDetail(item.id)"
+            v-for="(item,index) in moviecomings"
+            :key="index"
+          >
             <div class="day">
               <span>{{item.rDay}}日</span>
             </div>
@@ -78,7 +88,7 @@
                 </div>
               </div>
             </div>
-          </li>
+          </v-touch>
         </ul>
       </div>
     </div>
@@ -99,12 +109,18 @@ export default {
     this.attention = respose.attention;
     this.moviecomings = respose.moviecomings;
     //console.log(respose.attention);
-    console.log(respose.moviecomings);
+    //console.log(respose.moviecomings);
   },
   computed: {
     ...mapState({
       cityId: state => state.city.cityId
     })
+  },
+  methods: {
+    routeMovieDetail(id) {
+      //console.log(id);
+      this.$router.push({ name: "movieDetail", params: { id } });
+    }
   },
   data() {
     return {

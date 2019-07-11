@@ -47,7 +47,7 @@ export default {
   async created() {
     let response = await getArticle(this.id);
     this.movieArticle = response;
-    console.log(this.movieArticle);
+    //console.log(this.movieArticle);
   },
   data() {
     return {

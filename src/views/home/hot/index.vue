@@ -4,7 +4,12 @@
     <SearchBar />
     <div class="content">
       <ul>
-        <li v-for="(item,index) in hotmovie" :key="index">
+        <v-touch
+          tag="li"
+          @tap="routeMovieDetail(item.id)"
+          v-for="(item,index) in hotmovie"
+          :key="index"
+        >
           <div class="movie_img">
             <a href="#">
               <img :src="item.img" />
@@ -36,7 +41,7 @@
               <a href="#">购票</a>
             </div>
           </div>
-        </li>
+        </v-touch>
       </ul>
     </div>
   </div>
@@ -55,12 +60,18 @@ export default {
     let respose = await getMovieHot(this.cityId);
     //console.log(respose);
     this.hotmovie = respose.ms;
-    console.log(respose.ms);
+    //console.log(respose.ms);
   },
   computed: {
     ...mapState({
       cityId: state => state.city.cityId
     })
+  },
+  methods: {
+    routeMovieDetail(id) {
+      //console.log(id);
+      this.$router.push({ name: "movieDetail", params: { id } });
+    }
   },
   data() {
     return {

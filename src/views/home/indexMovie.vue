@@ -45,8 +45,8 @@ import { getHomeData } from "@api/home";
 export default {
   name: "IndexMovie",
   async created() {
-    console.log(this.cityId)
-    let response = await getHomeData(this.cityId );
+    //console.log(this.cityId)
+    let response = await getHomeData(this.cityId);
     this.movies = response.ms;
     this.comingMovies = response.totalComingMovie;
   },
@@ -58,8 +58,8 @@ export default {
   },
   methods: {
     routeMovieDetail(id) {
-      console.log(id);
-      this.$router.push({ name: "movieDetail", params: { id} });
+      //console.log(id);
+      this.$router.push({ name: "movieDetail", params: { id } });
     }
   },
   data() {
