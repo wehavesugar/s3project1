@@ -57,7 +57,12 @@ export default new Router({
             component: () =>
                 import ('@views/explore/index.vue')
         },
-
+        {
+            path: '/explore',
+            redirect: '/news',
+            component: () =>
+                import ('@views/explore/index.vue')
+        },
         {
             path: '/login',
             component: () =>

@@ -42,7 +42,7 @@ export default {
         },
         {
           title: "发现",
-          path: "/explore"
+          path: "/news"
         }
       ]
     };

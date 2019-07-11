@@ -40,7 +40,7 @@
             <p>{{item.title}}</p>
           </div>
           <div class="text">
-            <time>{{(time - item.publishTime)%24}}小时前</time>
+            <time>{{Math.floor((time - item.publishTime)/3600)+8}}小时前</time>
             <i v-if="item.commentCount>0 && item.type !== 1 ">评论 {{item.commentCount}}</i>
           </div>
         </li>
@@ -55,6 +55,7 @@ import Newsnav from "./component/newsnav.vue";
 import Banner from './component/banner.vue'
 import { banner } from "@api/explore";
 import { exploreNewsList } from "@api/explore";
+
 export default {
     components: {
     Newsnav,
@@ -67,10 +68,13 @@ export default {
     let response2 = await banner();
     this.exploreNewsList = response.newsList;
     this.getBanner = response2.news;
-    console.log(this.exploreNewsList);
+    // console.log(this.exploreNewsList);
+
+
+
     var t = new Date().getTime();
     this.time = parseInt(t / 1000);
-    console.log(this.time)
+        // console.log(this.time,this.exploreNewsList[0].publishTime);
   },
   data() {
     return {
@@ -79,7 +83,7 @@ export default {
       time:null
     };
   },
-  name: "explore"
+  name: "news"
 };
 
 </script>
