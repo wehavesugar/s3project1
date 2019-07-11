@@ -88,8 +88,20 @@
 </template>
 
 <script>
+// import { aritcleSlide } from "../../api/order.js";
 export default {
-  name: "AritcleSlide"
+  // name: "AritcleSlide",
+  // async created() {
+  //   console.log("aritcleSlide")
+  //   let response = await aritcleSlide();
+  //   // this.AritcleSlide = response.scrollImg;
+  //   console.log(response);
+  // },
+  // data(){
+  //   return{
+  //     AritcleSlide:[]
+  //   }
+  // }
 };
 </script>
 
