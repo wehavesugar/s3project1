@@ -249,7 +249,7 @@ export default {
 
         
         let shortComment = await getShortComment(this.id);
-        console.log(shortComment.cts[0].cd,t)
+        //console.log(shortComment.cts[0].cd,t)
 
         this.short_comment = shortComment.cts;
         this.short_comment_num =  shortComment.totalCommentCount;

@@ -32,7 +32,8 @@
           <li v-for="(movie,index) in movies" @click="selectMovie(index)" :key="index">
             <a href="#">
               <img :src="movie.img" />
-              <b class="m_title">{{movie.title}}</b>
+              <div class="mask" v-show="maskIndex!==index"></div>
+              <b class="m_title" v-show="maskIndex!==index">{{movie.title}}</b>
               <i v-if="movie.ratingFinal>0" class="m_score">{{movie.ratingFinal}}</i>
             </a>
           </li>
@@ -49,7 +50,7 @@
         <div class="search_tab">
           <ul>
             <li
-              v-for="(date,index) in movies[showIndex].showDates"
+              v-for="(date,index) in showDates"
               @click="on(index)"
               :class="dateIndex==index?'on':''"
               :key="index"
@@ -88,10 +89,11 @@ export default {
   props: ["cinemaId"],
   async created() {
     let response = await getCinema(this.cinemaId);
-    //console.log(response);
     this.cinema = response.data.cinema;
     this.cinemaFeature = response.data.cinema.feature;
     this.movies = response.data.movies;
+    console.log(this.movies);
+    
     this.showtimes = response.data.showtimes;
     this.movieTitle = this.movies[0].title;
     this.movieLength = this.movies[0].length;
@@ -107,8 +109,10 @@ export default {
       movieLength: "",
       movieType: "",
       showtimes: [],
+      showDates: [],
       showIndex: 0,
-      dateIndex: 0
+      dateIndex: 0,
+      maskIndex: 0
     };
   },
   methods: {
@@ -120,6 +124,9 @@ export default {
       this.movieTitle = this.movies[index].title;
       this.movieLength = this.movies[index].length;
       this.movieType = this.movies[index].type;
+      this.showDates = this.movies[index].showDates;
+      console.log(this.showDates);
+      this.maskIndex = index;
     },
     on(index) {
       this.dateIndex = index;
@@ -180,6 +187,19 @@ export default {
   justify-content: center;
   align-items: center;
   height: 1.4rem;
+}
+.hotmovie ul li a {
+  position: relative;
+}
+.mask {
+  width: 100%;
+  height: 2.3rem;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
 }
 .title {
   width: 5rem;

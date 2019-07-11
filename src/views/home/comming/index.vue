@@ -105,11 +105,8 @@ export default {
   name: "comming",
   async created() {
     let respose = await getMovieComing(this.cityId);
-    //console.log(respose);
     this.attention = respose.attention;
     this.moviecomings = respose.moviecomings;
-    //console.log(respose.attention);
-    //console.log(respose.moviecomings);
   },
   computed: {
     ...mapState({
@@ -118,7 +115,6 @@ export default {
   },
   methods: {
     routeMovieDetail(id) {
-      //console.log(id);
       this.$router.push({ name: "movieDetail", params: { id } });
     }
   },
