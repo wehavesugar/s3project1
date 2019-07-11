@@ -9,6 +9,7 @@ import explore from './explore';
 import citylist from './citylist';
 import article from './article';
 import buyTicket from './buyTicket';
+import movieDetail from './movieDetails';
 
 Vue.use(Router);
 
@@ -23,6 +24,7 @@ export default new Router({
 		citylist,
 		article,
 		buyTicket,
+		movieDetail,
 		{
 			path: '/',
 			redirect: '/home'

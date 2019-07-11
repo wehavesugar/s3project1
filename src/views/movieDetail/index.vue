@@ -307,8 +307,13 @@
 </template>
 
 <script>
+import { getArticle } from "@api/article";
 export default {
-    name: 'detail',
+    name: 'movieDetail',
+    props:['id'],
+    async created(){
+        console.log(this.id)
+    },
     data(){
         return{
             backgroundImage: '//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F31%2F163639.93224012_1280X720X2.jpg&width=420&height=280&clipType='
