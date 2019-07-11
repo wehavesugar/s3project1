@@ -36,9 +36,6 @@ export default {
                 ],
                 toggleIndex:0
                 }
-    },
-    methods:{
-        
     }
 }
 </script>

@@ -3,97 +3,40 @@
     <TabBar />
     <div id="main">
       <Newsnav />
-      <div class="banner">
-        <div class="imgbox">
-          <img
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F07%2F19%2F103505.79149520.jpg"
-            alt="2017年SDCC圣地亚哥国际漫展前瞻"
-          />
-        </div>
-        <h2 class="backtitle">
-          <b>2017年SDCC圣地亚哥国际漫展前瞻</b>
-        </h2>
-      </div>
+      <Banner :getBanner = 'getBanner' />
       <ul class="newslist">
-        <li class="table notbigpic">
-          <p>周迅主演《保持沉默》人物海报</p>
-          <div class="picbox">
-            <a href="javascript:;">
-              <img
-                src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2FCMS%2FGallery%2F2019%2F07%2F03%2F113740.90728550.jpg"
-              />
+
+        <li
+          v-for="(item,index) in exploreNewsList"
+          :key="index"
+          :class="item.images.length>0 ?'notbigpic':'table'"
+        >
+          <div class="picbox" v-if="item.type == 0">
+            <a class="pic" href="javasvcript:;">
+              <img :src="item.image" />
             </a>
-            <a href="javascript:;">
-              <img
-                class="m_img img_box"
-                src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2FCMS%2FGallery%2F2019%2F07%2F03%2F112542.76939198.jpg"
-              />
+          </div>
+          <div class="picbox" v-if="item.type == 2">
+            <a class="pic" href="javasvcript:;">
+              <img :src="item.image" />
+              <i class="i_video"></i>
             </a>
-            <a href="javascript:;">
-              <img
-                class="m_img img_box"
-                src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2FCMS%2FGallery%2F2019%2F07%2F03%2F112619.35721881.jpg"
-              />
+          </div>
+          <div class="picbox"  v-if="item.type == 1">
+            <a href="javascript:;" v-for="(ite, ind) in item.images" :key="ind">
+              <img :src="ite.url1" />
             </a>
+          </div>
+          <div class="title">
+            <p>{{item.title}}</p>
           </div>
           <div class="text">
-            <time>8小时前</time>
-          </div>
-        </li>
-        <li class="table">
-          <a class="pic" href="javasvcript:;">
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F02%2F174514.66300346.jpg"
-            />
-          </a>
-          <div class="content">
-            <h4>"摔跤吧爸爸"女主"遵循信仰"退演..</h4>
-            <div class="text">
-              <time>12小时前</time>
-              <span>评论 12</span>
-            </div>
-          </div>
-        </li>
-        <li class="table notbigpic">
-          <p>周迅主演《保持沉默》人物海报</p>
-          <div class="picbox">
-            <a href="javascript:;">
-              <img
-                src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2FCMS%2FGallery%2F2019%2F07%2F03%2F113740.90728550.jpg"
-              />
-            </a>
-            <a href="javascript:;">
-              <img
-                class="m_img img_box"
-                src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2FCMS%2FGallery%2F2019%2F07%2F03%2F112542.76939198.jpg"
-              />
-            </a>
-            <a href="javascript:;">
-              <img
-                class="m_img img_box"
-                src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2FCMS%2FGallery%2F2019%2F07%2F03%2F112619.35721881.jpg"
-              />
-            </a>
-          </div>
-          <div class="text">
-            <time>8小时前</time>
-          </div>
-        </li>
-        <li class="table">
-          <a class="pic" href="javasvcript:;">
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F07%2F02%2F174514.66300346.jpg"
-            />
-          </a>
-          <div class="content">
-            <h4>"摔跤吧爸爸"女主"遵循信仰"退演..</h4>
-            <div class="text">
-              <time>12小时前</time>
-              <span>评论 12</span>
-            </div>
+            <time>{{Math.floor((time - item.publishTime)/3600)+8}}小时前</time>
+            <i v-if="item.commentCount>0 && item.type !== 1 ">评论 {{item.commentCount}}</i>
           </div>
         </li>
       </ul>
+      <AddMore />
     </div>
   </div>
 </template>
@@ -101,16 +44,41 @@
 <script>
 import TabBar from "@common/tabbar.vue";
 import Newsnav from "./component/newsnav.vue";
-export default {
-  async created(){
+import Banner from './component/banner.vue';
+import AddMore from './component/addmore.vue';
+import { banner } from "@api/explore";
+import { exploreNewsList } from "@api/explore";
 
-  },
-  components: {
+
+export default {
+    components: {
     Newsnav,
-    TabBar
+    TabBar,
+    Banner,
+    AddMore
   },
-  name: "explore"
+
+  async created() {
+    let response = await exploreNewsList();
+    let response2 = await banner();
+    this.exploreNewsList = response.newsList;
+    this.getBanner = response2.news;
+
+
+
+    var t = new Date().getTime();
+    this.time = parseInt(t / 1000);
+  },
+  data() {
+    return {
+      getBanner:{},
+      exploreNewsList: [],
+      time:null
+    };
+  },
+  name: "news"
 };
+
 </script>
 
 <style scoped>
@@ -162,76 +130,111 @@ export default {
 .newslist > .table {
   padding-top: 0.36rem;
   padding-bottom: 0.324rem;
-  display: flex;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-.newslist > .table > .pic {
+.newslist .table .picbox {
+  float: left;
+}
+
+.newslist .table .picbox .pic {
   display: block;
   height: 1.8rem;
   width: 1.8rem;
   margin-bottom: 0.0722rem;
+  position: relative;
 }
 
-.newslist > .table > .pic > img {
+.newslist .table .picbox .pic .i_video{
+  display: inline-block;
+  position: absolute;
+  bottom: .12rem;
+  right: .12rem;
+  width: .69593rem;
+  height: .69593rem;
+  overflow: hidden;
+  background: url(//static1.mtime.cn/html5/20190531185056/images/2014/viceoplay.png) no-repeat center center;
+  background-size: cover;
+}
+
+
+.newslist .table .picbox .pic img {
   display: block;
   box-sizing: border-box;
   height: 100%;
   width: 1.8rem;
+  object-fit: cover;
 }
 
-.table > .content {
+.table .title {
+  float: left;
+  width: 5.3rem;
   padding: 0 0.36rem;
-  box-sizing: border-box;
-  width: 100%;
+  -webkit-box-sizing: border-box;
 }
 
-.table > .content > h4 {
-  width: 100%;
-  height: 0.88rem;
-  font-size: 0.4rem;
-  font-weight: bold;
-  line-height: 0.44rem;
-  box-sizing: border-box;
-  margin-bottom: 0.1678rem;
+.table .title p {
+    width: 100%;
+    height: 0.88rem;
+    font-size: 0.35rem;
+    font-weight: bold;
+    line-height: 0.44rem;
+    box-sizing: border-box;
+    margin-bottom: 0.1678rem;
 }
 
-.table > .content > .text {
+.table .text {
+  float: left;
   box-sizing: border-box;
-  padding: 0.18rem 0 0.048rem 0;
+  padding: 0.18rem 0 0.048rem .36rem;
   height: 0.4678rem;
   color: #999;
 }
 
-.table > .content > .text > time {
+.table .text > time {
   margin-right: 0.90234rem;
 }
 
 .newslist .notbigpic {
-  display: flex;
+  display: -webkit-box;
+  width: 100%;
   flex-direction: column;
   padding-right: 0.36rem;
-  padding-bottom: 0.12rem;
+  padding-bottom: 0.06rem;
   box-sizing: border-box;
+  padding-top: 0.36rem;
+  border-bottom: 1px solid #ddd;
+  position: relative;
 }
 
-.notbigpic > p {
+.newslist .notbigpic .title {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin-top: 0.36rem;
+}
+
+.newslist .notbigpic .title p {
   display: block;
   width: 100%;
-  font-size: 0.4rem;
+  font-size: 0.35rem;
   font-weight: bold;
   line-height: 0.44rem;
+  height: 0.44rem;
 }
 
-.notbigpic > .picbox {
+.notbigpic .picbox {
   padding: 0.24rem 0 0.048rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
+  box-sizing: border-box;
+  margin-top: .4rem;
 }
 
-.notbigpic > .picbox > a {
+.notbigpic .picbox a {
   display: block;
   width: 2.28rem;
   height: 1.56rem;
@@ -240,25 +243,28 @@ export default {
   display: block;
 }
 
-.notbigpic > .picbox > a > img {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    object-fit: cover;
-    height: 100%;
-    object-position: left top;
+.notbigpic .picbox a img {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  object-fit: cover;
+  height: 100%;
+  object-position: left top;
 }
 
-.notbigpic > .text {
+.notbigpic .text {
+  display: flex;
   padding: 0.18rem 0 0.048rem 0;
-  height: 0.23982rem;
   line-height: 0.23982rem;
   color: #999;
+  box-sizing: border-box;
 }
 
-.notbigpic > .text > time {
+.notbigpic .text > time {
   display: block;
   margin-right: 0.90234rem;
 }
+
+
 </style>

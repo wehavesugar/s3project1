@@ -1,43 +1,43 @@
 <template>
     <div>
-        <header class="header">
-            <a href="#" class="back" @click="handleack"></a>
-        </header>
+        <v-touch class="header" tag='header' @tap="handleback">
+            <a href="#" class="back" ></a>
+        </v-touch>
         <div id="main">
             <div class="filmpeople">
                 <div class="peopletitle">
-                    <h2>昆汀·塔伦蒂诺个人推荐私宠电影Top20</h2>
+                    <h2>{{title}}</h2>
                 </div>
-                <p>昆汀也是一个狂热的影迷</p>
+                <p>{{summary}}</p>
             </div>
             <ul>
-                <li>
+                <li v-for="(item, index) in movies" :key="index">
                     <p class="glotop">
-                        <span>01</span>
+                        <span>{{item.rankNum}}</span>
                     </p>
                     <div class="movieinfo">
                         <div class="glotop_pic">
                             <a href="javascript:;">
-                                <img class="m_img img_box" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fmt%2F2013%2F12%2F18%2F113313.20432336_1280X720X2.jpg" alt="大逃杀">
+                                <img class="m_img img_box" :src=item.posterUrl>
                             </a>
                         </div>
                         <div class="td">
                             <dt>
                                 <a href="javascript:;">
-                                    <strong>大逃杀(2000)</strong>
+                                    <strong>{{item.name}}</strong>
                                     <em class="m_score">
-                                        <i>8.4</i>
+                                        <i>{{item.rating}}</i>
                                     </em>
                                 </a>
                             </dt>
                             <dd class="entitle">
-                                <p>Battle Royale</p>
+                                <p>{{item.nameEn}}</p>
                             </dd>
                             <dd class="glo_movieinfo">
                                 <a href="javascript:;">
-                                    <p>导演：深作欣二</p>
-                                    <p>主演：藤原龙也&nbsp;&nbsp;前田亚季</p>
-                                    <p>2000年12月16日 日本</p>
+                                    <p>导演：{{item.director}}</p>
+                                    <p>主演：{{item.actor}}&nbsp;&nbsp;{{item.actor2}}</p>
+                                    <p>{{item.releaseDate}} {{item.releaseLocation}}</p>
                                 </a>
                             </dd>
                         </div>
@@ -45,167 +45,7 @@
                     <aside class="glo_tip _resonContent">
                         <div class="table">
                             <p class="displayResonContent">
-                                四十二名学生由班主任带领，被逼到一荒岛参加大逃杀死亡游戏，只能有一人生存。为求..
-                            </p>
-                        </div>
-                    </aside>
-                    <p class="glo_line"></p>
-                </li>
-                <li>
-                    <p class="glotop">
-                        <span>02</span>
-                    </p>
-                    <div class="movieinfo">
-                        <div class="glotop_pic">
-                            <a href="javascript:;">
-                                <img class="m_img img_box" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fmt%2F2013%2F12%2F18%2F113313.20432336_1280X720X2.jpg" alt="大逃杀">
-                            </a>
-                        </div>
-                        <div class="td">
-                            <dt>
-                                <a href="javascript:;">
-                                    <strong>奇招尽出(2003)</strong>
-                                    <em class="m_score">
-                                        <i>6.9</i>
-                                    </em>
-                                </a>
-                            </dt>
-                            <dd class="entitle">
-                                <p>Anything Else</p>
-                            </dd>
-                            <dd class="glo_movieinfo">
-                                <a href="javascript:;">
-                                    <p>导演：伍迪·艾伦</p>
-                                    <p>主演：贾森·比格斯&nbsp;&nbsp;克里斯蒂娜·里奇</p>
-                                    <p>2003年8月27日 意大利</p>
-                                </a>
-                            </dd>
-                        </div>
-                    </div>
-                    <aside class="glo_tip _resonContent">
-                        <div class="table">
-                            <p class="displayResonContent">
-                                杰瑞是纽约一名满怀雄心壮志的作家，他对女孩阿曼达一见钟情。究竟该如何处理这段感..
-                            </p>
-                        </div>
-                    </aside>
-                    <p class="glo_line"></p>
-                </li>
-                <li>
-                    <p class="glotop">
-                        <span>03</span>
-                    </p>
-                    <div class="movieinfo">
-                        <div class="glotop_pic">
-                            <a href="javascript:;">
-                                <img class="m_img img_box" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fmt%2F2013%2F12%2F18%2F113313.20432336_1280X720X2.jpg" alt="大逃杀">
-                            </a>
-                        </div>
-                        <div class="td">
-                            <dt>
-                                <a href="javascript:;">
-                                    <strong>大逃杀(2000)</strong>
-                                    <em class="m_score">
-                                        <i>8.4</i>
-                                    </em>
-                                </a>
-                            </dt>
-                            <dd class="entitle">
-                                <p>Battle Royale</p>
-                            </dd>
-                            <dd class="glo_movieinfo">
-                                <a href="javascript:;">
-                                    <p>导演：深作欣二</p>
-                                    <p>主演：藤原龙也&nbsp;&nbsp;前田亚季</p>
-                                    <p>2000年12月16日 日本</p>
-                                </a>
-                            </dd>
-                        </div>
-                    </div>
-                    <aside class="glo_tip _resonContent">
-                        <div class="table">
-                            <p class="displayResonContent">
-                                四十二名学生由班主任带领，被逼到一荒岛参加大逃杀死亡游戏，只能有一人生存。为求..
-                            </p>
-                        </div>
-                    </aside>
-                    <p class="glo_line"></p>
-                </li>
-                <li>
-                    <p class="glotop">
-                        <span>04</span>
-                    </p>
-                    <div class="movieinfo">
-                        <div class="glotop_pic">
-                            <a href="javascript:;">
-                                <img class="m_img img_box" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fmt%2F2013%2F12%2F18%2F113313.20432336_1280X720X2.jpg" alt="大逃杀">
-                            </a>
-                        </div>
-                        <div class="td">
-                            <dt>
-                                <a href="javascript:;">
-                                    <strong>大逃杀(2000)</strong>
-                                    <em class="m_score">
-                                        <i>8.4</i>
-                                    </em>
-                                </a>
-                            </dt>
-                            <dd class="entitle">
-                                <p>Battle Royale</p>
-                            </dd>
-                            <dd class="glo_movieinfo">
-                                <a href="javascript:;">
-                                    <p>导演：深作欣二</p>
-                                    <p>主演：藤原龙也&nbsp;&nbsp;前田亚季</p>
-                                    <p>2000年12月16日 日本</p>
-                                </a>
-                            </dd>
-                        </div>
-                    </div>
-                    <aside class="glo_tip _resonContent">
-                        <div class="table">
-                            <p class="displayResonContent">
-                                四十二名学生由班主任带领，被逼到一荒岛参加大逃杀死亡游戏，只能有一人生存。为求..
-                            </p>
-                        </div>
-                    </aside>
-                    <p class="glo_line"></p>
-                </li>
-                <li>
-                    <p class="glotop">
-                        <span>05</span>
-                    </p>
-                    <div class="movieinfo">
-                        <div class="glotop_pic">
-                            <a href="javascript:;">
-                                <img class="m_img img_box" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fmt%2F2013%2F12%2F18%2F113313.20432336_1280X720X2.jpg" alt="大逃杀">
-                            </a>
-                        </div>
-                        <div class="td">
-                            <dt>
-                                <a href="javascript:;">
-                                    <strong>大逃杀(2000)</strong>
-                                    <em class="m_score">
-                                        <i>8.4</i>
-                                    </em>
-                                </a>
-                            </dt>
-                            <dd class="entitle">
-                                <p>Battle Royale</p>
-                            </dd>
-                            <dd class="glo_movieinfo">
-                                <a href="javascript:;">
-                                    <p>导演：深作欣二</p>
-                                    <p>主演：藤原龙也&nbsp;&nbsp;前田亚季</p>
-                                    <p>2000年12月16日 日本</p>
-                                </a>
-                            </dd>
-                        </div>
-                    </div>
-                    <aside class="glo_tip _resonContent">
-                        <div class="table">
-                            <p class="displayResonContent">
-                                四十二名学生由班主任带领，被逼到一荒岛参加大逃杀死亡游戏，只能有一人生存。为求..
+                                {{item.remark.slice(0,38)}}...
                             </p>
                         </div>
                     </aside>
@@ -217,11 +57,25 @@
 </template>
 
 <script>
-
+import {topListDetails} from "@api/explore";
 export default {
+    async created(id){
+        let response = await topListDetails(this.id);
+        this.title=response.topList.name;
+        this.summary=response.topList.summary;
+        this.movies=response.movies;
+    },
+    props:['id'],
     name:'movie',
+    data(){
+        return{
+            title:'',
+            summary:'',
+            movies:[]
+        }
+    },
     methods:{
-        handleack(){
+        handleback(){
             this.$router.back();
         }
     }
@@ -400,7 +254,7 @@ export default {
         }
         
         .movieinfo .td .glo_movieinfo a p {
-            font-size: 14px;
+            font-size: .28rem;
             line-height: .476rem;
             height: .476rem;
             overflow: hidden;
@@ -421,9 +275,11 @@ export default {
         
         .glo_tip .table .displayResonContent {
             line-height: .38rem;
-            font-size: .14rem;
+            font-size: .28rem;
             color: #777;
-            padding: 0 .2rem
+            padding: 0 .2rem;
+            text-overflow: ellipsis;
+            height: .76rem;
         }
         
         .glo_line {

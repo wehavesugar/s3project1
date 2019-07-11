@@ -11,25 +11,25 @@
             <div class="cinemabox">
                 <div class="cinema_pic">
                     <a href="javascript:;">
-                        <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F31%2F163639.93224012_1280X720X2.jpg" alt="蜘蛛侠：英雄远征">
+                        <img :src="info.image" :alt="info.titleCn">
                     </a>
                 </div>
                 <div class="cinema_txt">
                     <header>
                         <a href="javascript:;">
-                            <h2>蜘蛛侠：英雄远征</h2>
-                            <p>Spider-Man: Far From Home</p>
+                            <h2>{{info.titleCn}}</h2>
+                            <p>{{info.titleEn}}</p>
                         </a>
                         <b class="baidu_score">
-                                <i class="m_score">8.1</i>
+                                <i class="m_score">{{info.rating}}</i>
                             </b>
                     </header>
                     <div class="td">
                         <p>
-                            <b>有彩蛋</b> - 127分钟
+                            <b>有彩蛋</b> - {{info.runTime}}
                         </p>
-                        <p>动作 / 冒险 / 喜剧</p>
-                        <p>2019年6月28日中国上映 </p>
+                        <p>{{info.type}}</p>
+                        <p>{{info.year}}年6月28日中国上映 </p>
                     </div>
                     <aside class="m_cin_btn table" id="wantwatchbox">
                         <a href="javascript:;" id="wantButton" class="td m_btn_ngray">
@@ -44,7 +44,7 @@
             <div class="cin_otherinfo ">
                 <div class="title">
                     <i class="i_block i_dot"></i>
-                    <b>蜘蛛侠劫后重生决战千里</b>
+                    <b>{{info.commonSpecial}}</b>
                 </div>
                 <div class="ticketButton">
                     <a href="javascript:;" class="m_btn_orange">
@@ -55,7 +55,7 @@
             <div class="marginuse"></div>
             <div class="marginuse1"></div>
             <article id="plotRegion" class="cin_more">
-                <p>故事全面延续“复联4”，蜘蛛侠志承钢铁侠远征欧洲，独挑大梁对抗群敌。新角色“神秘..</p>
+                <p>{{info.content}}</p>
                 <a href="javascript:;" class="m_btn_tmore"></a>
             </article>
             <div class="marginuse"></div>
@@ -102,7 +102,7 @@
                 <h2>
                     <a href="#!/movie/238037/fullcredits/">
                         <span class="i_tnext"></span>
-                        <b>153位演职员</b>
+                        <b>{{info.personCount}}位演职员</b>
                     </a>
                 </h2>
                 <div class="table">
@@ -112,13 +112,13 @@
                             <ul class="table">
                                 <li>
                                     <a href="#!/person/1561252/" class="picbox">
-                                        <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fph%2F2015%2F07%2F02%2F113729.18946910_1280X720X2.jpg" class="m_img">
+                                        <img :src="director.directorImg" class="m_img">
                                     </a>
                                     <a href="#!/person/1561252/">
-                                        <h3>乔·沃茨</h3>
+                                        <h3>{{director.directorName}}</h3>
                                     </a>
                                     <a href="#!/person/1561252/">
-                                        <p>Jon Watts</p>
+                                        <p>{{director.directorNameEn}}</p>
                                     </a>
                                 </li>
                             </ul>
@@ -128,35 +128,20 @@
                         <dt class="table">主要演员</dt>
                         <dd>
                             <ul class="table">
-                                <li class="">
+                                <li class="" v-for='(actor,index) in actorList' :key=index>
                                     <a href="#!/person/1796400/" class="picbox">
-                                        <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fph%2F2018%2F01%2F16%2F191727.80274844_1280X720X2.jpg" class="m_img">
+                                        <img :src="actorList[index].actorImg" class="m_img">
                                     </a>
                                     <a href="#!/person/1796400/">
-                                        <h3>汤姆·赫兰德</h3>
+                                        <h3>{{actorList[index].actor}}</h3>
                                     </a>
                                     <a href="#!/person/1796400/">
-                                        <p>Tom Holland</p>
+                                        <p>{{actorList[index].actorEn}}</p>
                                     </a>
                                     <a href="#!/person/1796400/" class="picbox small">
-                                        <img src="//imgproxy.mtime.cn/get.ashx?uri=&amp;" class="m_img">
+                                        <img src="#" class="m_img">
                                     </a>
-                                    <p>饰:彼得·帕克 / ..</p>
-                                </li>
-                                <li class="td">
-                                    <a href="#!/person/913953/" class="picbox">
-                                        <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fph%2F2016%2F12%2F19%2F093406.36317818_1280X720X2.jpg" class="m_img">
-                                    </a>
-                                    <a href="#!/person/913953/">
-                                        <h3>杰克·吉伦哈尔</h3>
-                                    </a>
-                                    <a href="#!/person/913953/">
-                                        <p>Jake Gyllenhaal</p>
-                                    </a>
-                                    <a href="#!/person/913953/" class="picbox small">
-                                        <img src="//imgproxy.mtime.cn/get.ashx?uri=&amp;" class="m_img">
-                                    </a>
-                                    <p>饰:神秘客</p>
+                                    <p>饰：{{actorList[index].roleName}}</p>
                                 </li>
                             </ul>
                         </dd>
@@ -169,29 +154,14 @@
                 <h2>
                     <a href="#!/movie/238037/posters_and_images/">
                         <span class="i_tnext"></span>
-                        <b>162张图片</b>
+                        <b>{{info.imageCount}}张图片</b>
                     </a>
                 </h2>
                 <div class="showpic">
                     <ul class="cin_scrollpic">
-                        <li>
+                        <li v-for='(pic,index) in images' :key=index>
                             <a href="#!/movie/238037/posters_and_images/">
-                                <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F06%2F09%2F112515.34616942_1280X720X2.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!/movie/238037/posters_and_images/">
-                                <img alt="蜘蛛侠：英雄远征剧照" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F06%2F27%2F092300.43751601_1280X720X2.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!/movie/238037/posters_and_images/">
-                                <img alt="蜘蛛侠：英雄远征剧照" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F06%2F09%2F112513.98792382_1280X720X2.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!/movie/238037/posters_and_images/">
-                                <img alt="蜘蛛侠：英雄远征剧照" src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F06%2F09%2F112509.29085440_1280X720X2.jpg">
+                                <img :src="pic">
                             </a>
                         </li>
                     </ul>
@@ -200,95 +170,43 @@
             <div class="shadow"></div>
             <div class="long_comment">
                 <a href="#">
-                    <span> 精选影评 (<b> 4 </b>)</span>
+                    <span> 精选影评 (<b> {{long_comment_num}} </b>)</span>
                     <span class="i_tnext"></span>
                 </a>
                 <section class="com_txt">
                     <a href="#">
-                        <h3>人命如草芥</h3>
-                        <p>前阵子《追龙2》把枭雄戏拍成了警匪戏，这部怎么看都是警匪戏的《扫毒2》，却搞得枭气弥漫。这个时代能面世的港产大制..</p>
+                        <h3>{{long_comment.title}}</h3>
+                        <p>{{long_comment.content}}</p>
                     </a>
                 </section>
                 <section class="com_person">
-                    <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg32.mtime.cn%2Fup%2F2013%2F01%2F08%2F081313.64016596_128X128.jp" alt="">
+                    <img :src="long_comment.headurl" alt="">
                     <div class="person_name">
-                        <p class="p_name">方璟南</p>
-                        <p class="p_time">昨天 04:18 </p>
+                        <p class="p_name">{{long_comment.nickname}}</p>
+                        <p class="p_time">{{ timeConverter(long_comment.modifyTime)}}</p>
                     </div>
                 </section>
             </div>
             <div class="shadow"></div>
             <div class="short_comment">
-                <h3><span> 网友短评 (<b> 291 </b>)</span></h3>
+                <h3><span> 网友短评 (<b> {{short_comment_num}} </b>)</span></h3>
                 <ul class="short_comment_ul">
-                    <li>
+                    <li v-for="(short_comment,index) in short_comment" :key=index>
                         <div class="com_pic">
-                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg32.mtime.cn%2Fup%2F2013%2F03%2F06%2F134245.64687746_48X48.jpg" alt="">
+                            <img :src="short_comment.caimg" alt="">
                         </div>
                         <dl class="s_com_txt">
                             <dd>
-                                <b>银幕鎏金</b>
+                                <b class="comment_short">{{short_comment.ca.slice(0,10)}}</b>
                                 <b>
-                                    <i>一小时前</i>
+                                    <i>{{Math.floor((time-short_comment.cd)/3600/1000)+8}} 小时前</i>
                                     <i>-评</i>
-                                    <em class="m_score">7.0</em>
+                                    <em class="m_score">{{short_comment.cr}}</em>
                                 </b>
                             </dd>
                             <dt>
                                 <a href="#">
-                                    <p>剧情蠢蠢的硬伤</p>
-                                    <span>
-                                        <i class="i_reply"></i>
-                                        <span>回复</span>
-                                        <i class="i_praise"></i>
-                                        <span>赞</span>
-                                    </span>
-                                </a>
-                            </dt>
-                        </dl>
-                    </li>
-                    <li>
-                        <div class="com_pic">
-                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg2.mtime.cn%2Fimages%2Fdefault%2Fhead_48X48.gif" alt="">
-                        </div>
-                        <dl class="s_com_txt">
-                            <dd>
-                                <b>银幕鎏金</b>
-                                <b>
-                                    <i>一小时前</i>
-                                    <i>-评</i>
-                                    <em class="m_score">7.0</em>
-                                </b>
-                            </dd>
-                            <dt>
-                                <a href="#">
-                                    <p>剧情蠢蠢的硬伤</p>
-                                    <span>
-                                        <i class="i_reply"></i>
-                                        <span>回复</span>
-                                        <i class="i_praise"></i>
-                                        <span>赞</span>
-                                    </span>
-                                </a>
-                            </dt>
-                        </dl>
-                    </li>
-                    <li>
-                        <div class="com_pic">
-                            <img src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg32.mtime.cn%2Fup%2F2015%2F01%2F01%2F222009.92841832_48X48.jpg" alt="">
-                        </div>
-                        <dl class="s_com_txt">
-                            <dd>
-                                <b>银幕鎏金</b>
-                                <b>
-                                    <i>一小时前</i>
-                                    <i>-评</i>
-                                    <em class="m_score">7.0</em>
-                                </b>
-                            </dd>
-                            <dt>
-                                <a href="#">
-                                    <p>剧情蠢蠢的硬伤</p>
+                                    <p>{{short_comment.ce}}</p>
                                     <span>
                                         <i class="i_reply"></i>
                                         <span>回复</span>
@@ -307,22 +225,68 @@
 </template>
 
 <script>
-import { getArticle } from "@api/article";
+import { getMovieDetail } from "@api/movieDetail";
+import { getLongComment } from "@api/longComment";
+import { getShortComment } from "@api/shortComment";
+
 export default {
     name: 'movieDetail',
     props:['id'],
     async created(){
-        console.log(this.id)
+        let response = await getMovieDetail(this.id);
+        this.info=response;
+        this.director=response.director;
+        this.actorList=response.actorList;
+        this.images=response.images;
+        this.backgroundImage=response.image;
+
+        let longComment = await getLongComment(this.id);
+        this.long_comment = longComment.comments[0];
+        this.long_comment_num =  longComment.totalCount;
+        
+        var t = new Date().getTime();
+        this.time = t;
+
+        
+        let shortComment = await getShortComment(this.id);
+        console.log(shortComment.cts[0].cd,t)
+
+        this.short_comment = shortComment.cts;
+        this.short_comment_num =  shortComment.totalCommentCount;
     },
     data(){
         return{
-            backgroundImage: '//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F31%2F163639.93224012_1280X720X2.jpg&width=420&height=280&clipType='
+            info:{},
+            director:{},
+            actorList:{},
+            images:[],
+            backgroundImage: "",
+
+            long_comment:[],
+            long_comment_num:'',
+
+            short_comment:[],
+            short_comment_num:'',
+            time:null
         }
     },
     methods:{
         handleBack(){
             this.$router.back();
-        }
+        },
+        timeConverter(UNIX_timestamp) {
+      var a = new Date(UNIX_timestamp * 1000);
+      var year = a.getFullYear();
+      var month = a.getMonth() + 1;
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes() < 10 ? "0" + a.getMinutes() : a.getMinutes();
+      var sec = a.getSeconds() < 10 ? "0" + a.getSeconds() : a.getSeconds();
+      var time =
+        year + "-" + month + "-" + date + " " + hour + ":" + min + ":" + sec;
+      return time;
+    }
+
     }
 }
 </script>
@@ -465,6 +429,7 @@ export default {
             top: 50%;
             margin-top: .456rem;
             box-sizing: border-box;
+            line-height: .64rem;
         }
         
         .cinema_txt .baidu_score .m_score {
@@ -606,13 +571,15 @@ export default {
             height: .696rem;
             background-size: 5%;
         }
-        
-        .credits,
         .shoplistbox {
             padding: .096rem .36rem .048rem;
             box-sizing: border-box;
+            display: none;
         }
-        
+        .credits{
+            padding: .4rem .34rem;
+        }
+
         .credits h2,
         .shoplistbox h2 {
             margin-bottom: .216rem;
@@ -663,7 +630,6 @@ export default {
         .othershop li {
             width: 49.25%;
             min-height: 5.28rem;
-            float: left;
             display: inline-block;
             position: relative;
             background-color: #fff;
@@ -852,6 +818,7 @@ export default {
             box-flex: 1;
             word-wrap: break-word;
             text-align: center;
+            overflow: hidden;
         }
         
         .cin_scrollpic li a {
@@ -887,6 +854,7 @@ export default {
             display: inline-block;
             font-size: .4rem;
             margin-right: .2rem;
+            color: #000;
         }
 
         .long_comment>a>i {
@@ -1034,18 +1002,22 @@ export default {
         }
 
         .s_com_txt>dt>a>span>i {
-            margin-right: .2rem;
+            margin-right: .1rem;
         }
 
         .i_reply {
             display: block;
             width: 0.46rem;
             height: 0.46rem;
+            background: url(../../../public/img/ico_reply.png);
+            background-size: contain;
         }
 
         .i_praise {
             display: block;
             width: 0.42rem;
             height: 0.42rem;
+            background: url(../../../public/img/ico_praise.png);
+            background-size: contain;
         }
 </style>

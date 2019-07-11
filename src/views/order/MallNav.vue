@@ -1,94 +1,15 @@
 <template>
   <nav class="mallnav m_bg_whiteb">
     <ul>
-      <li>
-        <a data-url="http://mall.wv.mtime.cn/#!/commerce/list/?c1=25">
+      <li v-for="(item, index) in navigatorIcon" :key="index">
+        <a :data-url=item.url>
           <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161133.99290860.jpg"
+            :data-original=item.image
             class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161133.99290860.jpg"
+            :src=item.image
             style="display: block;"
           />
-          <p>模玩</p>
-        </a>
-      </li>
-      <li>
-        <a data-url="http://mall.wv.mtime.cn/#!/commerce/list/?c1=8">
-          <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161141.82690725.jpg"
-            class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161141.82690725.jpg"
-            style="display: block;"
-          />
-          <p>数码</p>
-        </a>
-      </li>
-      <li>
-        <a data-url="http://mall.wv.mtime.cn/#!/commerce/list/?c1=42">
-          <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161148.25620959.jpg"
-            class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161148.25620959.jpg"
-            style="display: block;"
-          />
-          <p>服饰</p>
-        </a>
-      </li>
-      <li>
-        <a data-url="http://mall.wv.mtime.cn/#!/commerce/list/?c1=43">
-          <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161155.82939104.jpg"
-            class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161155.82939104.jpg"
-            style="display: block;"
-          />
-          <p>家居</p>
-        </a>
-      </li>
-      <li>
-        <a
-          data-url="http://mall.wv.mtime.cn/#!/commerce/list/?q=%E6%98%9F%E7%90%83%E5%A4%A7%E6%88%98"
-        >
-          <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161224.10155577.jpg"
-            class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161224.10155577.jpg"
-            style="display: block;"
-          />
-          <p>星战</p>
-        </a>
-      </li>
-      <li>
-        <a data-url="http://mall.wv.mtime.cn/#!/commerce/list/?q=%E6%BC%AB%E5%A8%81">
-          <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161315.97010262.jpg"
-            class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161315.97010262.jpg"
-            style="display: block;"
-          />
-          <p>漫威</p>
-        </a>
-      </li>
-      <li>
-        <a data-url="http://mall.wv.mtime.cn/#!/commerce/list/?q=%E8%9D%99%E8%B6%85">
-          <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161325.50615572.jpg"
-            class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161325.50615572.jpg"
-            style="display: block;"
-          />
-          <p>蝙超</p>
-        </a>
-      </li>
-      <li>
-        <a data-url="http://mall.wv.mtime.cn/#!/commerce/list/">
-          <img
-            data-original="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161342.70896250.jpg"
-            class="m_img"
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161342.70896250.jpg"
-            style="display: block;"
-          />
-          <p>全部</p>
+          <p>{{item.iconTitle}}</p>
         </a>
       </li>
     </ul>
@@ -96,8 +17,18 @@
 </template>
 
 <script>
+import { marketFirstPage } from '../../api/order.js'
 export default {
-  name: "MallNav"
+  name: "MallNav",
+  async created(){
+    let response = await marketFirstPage();
+    this.navigatorIcon = response.navigatorIcon;
+  },
+  data(){
+    return{
+      navigatorIcon: []
+    }
+  }
 };
 </script>
 
