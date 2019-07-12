@@ -136,7 +136,7 @@ export default {
   height: 0.125rem;
   margin-left: 0.125rem;
   margin-top: 0.075rem;
-  background: url("/../public/img/i_tmore.png") no-repeat;
+  background: url(../../../public/img/i_city.png) no-repeat;
   background-size: 0.225rem 0.1198rem;
 }
 .i_block {
@@ -160,7 +160,8 @@ export default {
   padding-left: 0.7129rem;
   border: 1px solid #bbb;
   border-radius: 0.1640625rem;
-  background: #fff url("/../public/img/search_ico_02.png") 0.1640625rem center;
+  background: #fff url(../../../public/img/search_ico_01.png) no-repeat
+    0.1640625rem center;
   background-size: 0.4265625rem 0.4265625rem;
   position: relative;
   z-index: 0;
