@@ -5,7 +5,7 @@
       <input type="text" placeholder="影院/影片/影人，任你搜" id="sesrchbox" />
       <span class="ser_cancel">搜索</span>
     </div>
-    <div class="content">
+    <div class="content" style="min-height: 8rem">
       <article class="movie_data">
         <b>42,560</b>
         <span>部影视作品</span>
@@ -14,20 +14,8 @@
       </article>
       <h3>热门搜索</h3>
       <article class="search_key">
-        <a href="#">
-          <span>千与千寻</span>
-        </a>
-        <a href="#">
-          <span>玩具总动员</span>
-        </a>
-        <a href="#">
-          <span>狮子王：3</span>
-        </a>
-        <a href="#">
-          <span>绝杀慕尼黑</span>
-        </a>
-        <a href="#">
-          <span>千与千寻</span>
+        <a v-for="(keyword,index) in keywords" :key="index" href="#">
+          <span>{{keyword}}</span>
         </a>
       </article>
     </div>
@@ -35,8 +23,18 @@
 </template>
 
 <script>
+import { getHotKeyWords } from "@api/search";
 export default {
   name: "search",
+  async created() {
+    let response = await getHotKeyWords();
+    this.keywords = response.keywords;
+  },
+  data() {
+    return {
+      keywords: []
+    };
+  },
   methods: {
     backward() {
       this.$router.back();
